@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800" rel="stylesheet">
+
+    <link href="~/Theme/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Theme/css/animate.css" rel="stylesheet" />
+    <link href="~/Theme/css/owl.carousel.min.css" rel="stylesheet" />
+    <link href="~/Theme/css/magnific-popup.css" rel="stylesheet" />
+
+    <link href="~/Theme/fonts/ionicons/css/ionicons.css" rel="stylesheet" />
+    <link href="~/Theme/fonts/fontawesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Theme/fonts/flaticons/font/flaticon.css" rel="stylesheet" />
+
+    <!-- Theme Style -->
+    <link href="~/Theme/css/style.css" rel="stylesheet" />
+</head>
+
+<body style="font-family: 'Times New Roman', Times, serif;">
+    <header role="banner">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/Restaurant/Index">
+                    <img src="~/Theme/img/media/logo-nha-hang-28.jpg" alt="Eatery Logo" width="120">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarsExample05">
+                    <ul class="navbar-nav ml-auto pl-lg-5 pl-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/Restaurant/Index">Trang chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Restaurant/AboutUs">Giới thiệu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Thực đơn</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Ưu đãi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Đặt bàn</a>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item cta-btn">
+                            <a class="nav-link" href="/Restaurant/Contact">Liên hệ</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div>
+        @RenderBody()
+    </div>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-4 mb-5">
+                    <h3>About Us</h3>
+                    <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus et dolor blanditiis consequuntur ex voluptates perspiciatis omnis unde minima expedita.</p>
+                    <ul class="list-unstyled footer-link d-flex footer-social">
+                        <li><a href="#" class="p-2"><span class="fa fa-twitter"></span></a></li>
+                        <li><a href="#" class="p-2"><span class="fa fa-facebook"></span></a></li>
+                        <li><a href="#" class="p-2"><span class="fa fa-linkedin"></span></a></li>
+                        <li><a href="#" class="p-2"><span class="fa fa-instagram"></span></a></li>
+                    </ul>
+
+                </div>
+                <div class="col-md-5 mb-5">
+                    <div class="mb-5">
+                        <h3>Opening Hours</h3>
+                        <p><strong class="d-block">Sunday-Thursday</strong> 5AM - 10PM</p>
+                    </div>
+                    <div>
+                        <h3>Contact Info</h3>
+                        <ul class="list-unstyled footer-link">
+                            <li class="d-block">
+                                <span class="d-block">Address:</span>
+                                <span class="text-white">34 Street Name, City Name Here, United States</span>
+                            </li>
+                            <li class="d-block"><span class="d-block">Telephone:</span><span class="text-white">+1 242 4942 290</span></li>
+                            <li class="d-block"><span class="d-block">Email:</span><span class="text-white">info@yourdomain.com</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-5">
+                    <h3>Quick Links</h3>
+                    <ul class="list-unstyled footer-link">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Disclaimers</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-md-center text-left">
+                    <p>
+                        Copyright &copy;
+                        <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#cf1d16" /></svg></div>
+
+    <script src="~/Theme/js/jquery-3.2.1.min.js"></script>
+    <script src="~/Theme/js/popper.min.js"></script>
+    <script src="~/Theme/js/bootstrap.min.js"></script>
+    <script src="~/Theme/js/owl.carousel.min.js"></script>
+    <script src="~/Theme/js/jquery.waypoints.min.js"></script>
+    <script src="~/Theme/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/Theme/js/magnific-popup-options.js"></script>
+    <script src="~/Theme/js/main.js"></script>
+</body>
+</html>

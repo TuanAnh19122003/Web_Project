@@ -1,0 +1,116 @@
+﻿@model Web_Project.Models.Account
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@using (Html.BeginForm("Create", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="content-wrapper">
+        <section class="content" style="padding-top:30px">
+            <!-- Default box -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-6 text-end text-danger text-uppercase">
+                            Thêm mới tài khoản
+                        </div>
+                        <div class="col-6 text-right">
+                            <a href="@Url.Action("Index","Account")" class="btn btn-sm btn-success"> <i class="fas fa-long-arrow-alt-left"></i> Back</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.img, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <input type="file" name="img" accept="image/*" class="form-control" />
+                            @Html.ValidationMessageFor(model => model.img, "", new { @class = "text-danger" })
+                            @if (!string.IsNullOrEmpty(Model?.img))
+                            {
+                                <img src="~/Theme/img/Foods/@Path.GetFileName(Model.img)" alt="Uploaded Image" class="img-thumbnail" width="100" height="100" />
+                            }
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.account1, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.account1, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.account1, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.role_id, "role_id", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("role_id", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.role_id, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.register_date, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <input type="datetime-local" id="register_date" name="register_date" class="form-control" />
+                            @Html.ValidationMessageFor(model => model.register_date, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.phone_number, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.phone_number, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.phone_number, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+}
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(function () {
+        // Lấy ngày và giờ hiện tại
+        var currentDate = new Date();
+        var currentYear = currentDate.getFullYear();
+        var currentMonth = ("0" + (currentDate.getMonth() + 1)).slice(-2);
+        var currentDay = ("0" + currentDate.getDate()).slice(-2);
+        var currentHours = ("0" + currentDate.getHours()).slice(-2);
+        var currentMinutes = ("0" + currentDate.getMinutes()).slice(-2);
+        var currentSeconds = ("0" + currentDate.getSeconds()).slice(-2);
+
+        // Định dạng chuỗi ngày và giờ
+        var formattedDateTime = currentYear + "-" + currentMonth + "-" + currentDay + "T" + currentHours + ":" + currentMinutes + ":" + currentSeconds;
+
+        // Thiết lập giá trị ngày và giờ mặc định cho trường register_date
+        $("#register_date").val(formattedDateTime);
+
+        // Kích hoạt DateTimePicker
+        $("#register_date").datetimepicker({
+            dateFormat: 'yy-mm-dd',
+            timeFormat: 'HH:mm:ss'
+            // Các tùy chọn khác tùy thuộc vào yêu cầu của bạn
+        });
+    });
+</script>
+

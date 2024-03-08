@@ -1,0 +1,339 @@
+﻿
+@{
+    ViewBag.Title = "Trang chủ";
+    Layout = "~/Views/Shared/_LayoutRestaurant.cshtml";
+}
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800" rel="stylesheet">
+
+    <link href="~/Theme/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Theme/css/animate.css" rel="stylesheet" />
+    <link href="~/Theme/css/owl.carousel.min.css" rel="stylesheet" />
+    <link href="~/Theme/css/magnific-popup.css" rel="stylesheet" />
+
+    <link href="~/Theme/fonts/ionicons/css/ionicons.css" rel="stylesheet" />
+    <link href="~/Theme/fonts/fontawesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Theme/fonts/flaticons/font/flaticon.css" rel="stylesheet" />
+
+    <!-- Theme Style -->
+    <link href="~/Theme/css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <section class="home-slider owl-carousel">
+        <div class="slider-item" style="background-image: url('/Theme/img/media/slide-show-1.png');">
+
+            <div class="container">
+                <div class="row slider-text align-items-center justify-content-center">
+                    <div class="col-md-8 text-center col-sm-12 element-animate">
+                        <h1>Expert Chefs</h1>
+                        <p class="mb-5">
+                            Không chỉ là những người nấu ăn, mà là những nghệ nhân tinh tế của nghệ thuật ẩm thực.
+                            Với sự tài năng và sự đam mê, họ biến những nguyên liệu đơn giản thành những bữa ăn tinh tế và độc đáo
+                        </p>
+                        <p><a href="#" class="btn btn-white btn-outline-white">Get Started</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slider-item" style="background-image: url('/Theme/img/media/slide-show-3.jpg');">
+            <div class="container">
+                <div class="row slider-text align-items-center justify-content-center">
+                    <div class="col-md-8 text-center col-sm-12 element-animate">
+                        <h1>Delecious Food</h1>
+                        <p class="mb-5">
+                            Hành trình của hương vị tuyệt vời và niềm đam mê ẩm thực.
+                            Mỗi món ăn là một chuyến phiêu lưu qua những hương thơm và vị ngon đặc trưng, kết hợp với sự sáng tạo của đầu bếp.
+                        </p>
+                        <p><a href="/Restaurant/Contact" class="btn btn-white btn-outline-white">Get Started</a></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="section bg-light element-animate">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-4 mb-lg-0 col-lg-3 text-center">
+                    <span class="flaticon-cheers display-4 text-black d-block mb-4"></span>
+                    <h4 class="mb-4 text-primary">Đồ uống</h4>
+                    <p>
+                        Sự hòa quyện của hương vị độc đáo và sự sáng tạo trong nghệ thuật pha chế.
+                    </p>
+                </div>
+                <div class="col-md-6 mb-4 mb-lg-0 col-lg-3 text-center">
+                    <span class="flaticon-fruit display-4 text-black d-block mb-4"></span>
+                    <h4 class="mb-4 text-primary">Lẩu 4 mùa</h4>
+                    <p>
+                        Lẩu 4 Mùa là một tác phẩm ẩm thực hài hòa, đồng hành cùng sự kết hợp độc đáo của bốn mùa trong mỗi dĩa ấm nóng.
+                    </p>
+                </div>
+                <div class="col-md-6 mb-4 mb-lg-0 col-lg-3 text-center">
+                    <span class="flaticon-coffee-cup display-4 text-black d-block mb-4"></span>
+                    <h4 class="mb-4 text-primary">Khai vị</h4>
+                    <p>
+                        "Khai vị là một hành trình khám phá hương vị tinh tế, mở ra cánh cửa cho một trải nghiệm ẩm thực độc đáo và hấp dẫn.
+                    </p>
+                </div>
+                <div class="col-md-6 mb-4 mb-lg-0 col-lg-3 text-center">
+                    <span class="flaticon-salad display-4 text-black d-block mb-4"></span>
+                    <h4 class="mb-4 text-primary">Rau tươi</h4>
+                    <p>
+                        Rau tươi, là nguồn cung cấp dinh dưỡng tuyệt vời và hương vị tươi mới, là ngôi sao sáng trong thế giới ẩm thực.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section element-animate">
+        <div class="clearfix mb-5 pb-5">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12 text-center heading-wrap">
+                        <h2>Special Offers</h2>
+                        <span class="back-text">Deals</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="owl-carousel centernonloop">
+            <a href="#" class="item-dishes">
+                <div class="text">
+                    <p class="dishes-price">$11.50</p>
+                    <h2 class="dishes-heading">Organic tomato salad, gorgonzola cheese, capers</h2>
+                </div>
+                <img src="~/Theme/img/media/dishes_1.jpg" alt="" class="img-fluid">
+            </a>
+            <a href="#" class="item-dishes">
+                <div class="text">
+                    <p class="dishes-price">$12.00</p>
+                    <h2 class="dishes-heading">Baked broccoli</h2>
+                </div>
+                <img src="~/Theme/img/media/dishes_2.jpg" alt="" class="img-fluid">
+            </a>
+            <a href="#" class="item-dishes">
+                <div class="text">
+                    <p class="dishes-price">$11.00</p>
+                    <h2 class="dishes-heading">Spicy meatballs</h2>
+                </div>
+                <img src="~/Theme/img/media/dishes_3.jpg" alt="" class="img-fluid">
+            </a>
+            <a href="#" class="item-dishes">
+                <div class="text">
+                    <p class="dishes-price">$12.00</p>
+                    <h2 class="dishes-heading">Eggplant parmigiana</h2>
+                </div>
+                <img src="~/Theme/img/media/dishes_4.jpg" alt="" class="img-fluid">
+            </a>
+        </div>
+    </section>
+
+    <section class="section bg-light element-animate">
+
+        <div class="clearfix mb-5 pb-5">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12 text-center heading-wrap">
+                        <h2>Our Menu</h2>
+                        <span class="back-text-dark">Menu</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <div class="row no-gutters">
+                <div class="col-md-6">
+                    <div class="sched d-block d-lg-flex">
+                        <div class="bg-image order-2" style="background-image: url('/Theme/img/media/dishes_4.jpg');"></div>
+                        <div class="text order-1">
+                            <h3>Grilled Caesar salad, shaved reggiano</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto illo delectus...</p>
+                            <p class="text-primary h3">$12.00</p>
+                        </div>
+                    </div>
+
+                    <div class="sched d-block d-lg-flex">
+                        <div class="bg-image" style="background-image: url('/Theme/img/media/dishes_1.jpg');"></div>
+                        <div class="text">
+                            <h3>Spicy Calamari and beans</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto illo delectus...</p>
+                            <p class="text-primary h3">$12.00</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+                    <div class="sched d-block d-lg-flex">
+                        <div class="bg-image order-2" style="background-image: url('/Theme/img/media/dishes_2.jpg');"></div>
+                        <div class="text order-1">
+                            <h3>Bacon wrapped wild gulf prawns</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto illo delectus...</p>
+                            <p class="text-primary h3">$18.00</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="sched d-block d-lg-flex">
+                        <div class="bg-image" style="background-image: url('/Theme/img/media/dishes_3.jpg');"></div>
+                        <div class="text">
+                            <h3>Seared ahi tuna fillet*, honey-ginger sauce</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto illo delectus...</p>
+                            <p class="text-primary h3">$16.00</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> <!-- .section -->
+
+
+
+    <section class="section element-animate">
+
+        <div class="clearfix mb-5 pb-5">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12 text-center heading-wrap">
+                        <h2>Testimonial</h2>
+                        <span class="back-text">Testimonial</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <blockquote class="testimonial">
+                        <p>&ldquo; Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, obcaecati? Quis eum minus, sequi atque quisquam ducimus aliquam veritatis nobis cum iusto neque enim explicabo maxime natus doloribus, fuga sunt. &rdquo;</p>
+                        <div class="d-flex author">
+                            <img src="~/Theme/img/media/person_1.jpg" alt="" class="mr-4">
+                            <div class="author-info">
+                                <h4>Mellisa Howard</h4>
+                                <p>CEO, XYZ Company</p>
+                            </div>
+                        </div>
+                    </blockquote>
+                </div>
+                <div class="col-md-4">
+                    <blockquote class="testimonial">
+                        <p>&ldquo; Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, obcaecati? Quis eum minus, sequi atque quisquam ducimus aliquam veritatis nobis cum iusto neque enim explicabo maxime natus doloribus, fuga sunt. &rdquo;</p>
+                        <div class="d-flex author">
+                            <img src="~/Theme/img/media/person_2.jpg" alt="" class="mr-4">
+                            <div class="author-info">
+                                <h4>Mike Richardson</h4>
+                                <p>CEO, XYZ Company</p>
+                            </div>
+                        </div>
+                    </blockquote>
+                </div>
+                <div class="col-md-4">
+                    <blockquote class="testimonial">
+                        <p>&ldquo; Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, obcaecati? Quis eum minus, sequi atque quisquam ducimus aliquam veritatis nobis cum iusto neque enim explicabo maxime natus doloribus, fuga sunt. &rdquo;</p>
+                        <div class="d-flex author">
+                            <img src="~/Theme/img/media/person_3.jpg" alt="" class="mr-4">
+                            <div class="author-info">
+                                <h4>Charles White</h4>
+                                <p>CEO, XYZ Company</p>
+                            </div>
+                        </div>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section> <!-- .section -->
+
+    <section class="section element-animate">
+        <div class="clearfix mb-5 pb-5">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12 text-center heading-wrap">
+                        <h2>Blog</h2>
+                        <span class="back-text">Our Blog</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="blog d-block d-lg-flex">
+                        <div class="bg-image" style="background-image: url('/Theme/img/media/dishes_1.jpg');"></div>
+                        <div class="text">
+                            <h3>How to cook beef steak with sauce</h3>
+                            <p class="sched-time">
+                                <span><span class="fa fa-calendar"></span> April 22, 2018</span> <br>
+                            </p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto illo delectus...</p>
+
+                            <p><a href="#" class="btn btn-primary btn-sm">Read More</a></p>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="blog d-block d-lg-flex">
+                        <div class="bg-image" style="background-image: url('/Theme/img/media/dishes_2.jpg');"></div>
+                        <div class="text">
+                            <h3>How to cook beef steak with sauce</h3>
+                            <p class="sched-time">
+                                <span><span class="fa fa-calendar"></span> April 22, 2018</span> <br>
+                            </p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto illo delectus...</p>
+                            <p><a href="#" class="btn btn-primary btn-sm">Read More</a></p>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section> <!-- .section -->
+
+
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3>Subsribe Newsletter</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore ex temporibus magni ipsam inventore dolorum sunt, amet vel.</p>
+                        </div>
+
+                        <form action="" class="col-12">
+                            <div class="row align-items-center">
+                                <div class="col-md-8 mb-3 mb-md-0">
+                                    <input type="text" class="form-control" placeholder="Enter Email Address">
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="submit" class="btn btn-primary btn-block" value="Subscribe">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="07127f9bb8c044f7b8058b18555b25e2" Name="Diagram1">
+        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Account" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Bill_Items" Width="1.5" PointX="9.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Bill" Width="1.5" PointX="7.5" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Card_payments" Width="1.5" PointX="5.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Category" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Contact" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Deal" Width="1.5" PointX="7.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Favorite_Items" Width="1.5" PointX="10.5" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Membership" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Menu" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Position" Width="1.5" PointX="3" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Reservation" Width="1.5" PointX="5.25" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Restaurant_Web_DataModel.role" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Staff" Width="1.5" PointX="5.25" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Table_Res" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
+        <AssociationConnector Association="Restaurant_Web_DataModel.FK__Accounts__role_i__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="Restaurant_Web_DataModel.FK__Membershi__accou__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="Restaurant_Web_DataModel.FK__Bill_Item__bill___6754599E" ManuallyRouted="false" />
+        <AssociationConnector Association="Restaurant_Web_DataModel.FK__Bill_Item__item___68487DD7" ManuallyRouted="false" />
+        <AssociationConnector Association="Restaurant_Web_DataModel.FK__Bills__card_id__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="Restaurant_Web_DataModel.FK__Bills__member_id__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="Restaurant_Web_DataModel.FK__Bills__reservati__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="Restaurant_Web_DataModel.FK__Bills__staff_id__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="Restaurant_Web_DataModel.FK__Menu__category_i__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="Restaurant_Web_DataModel.FK__Favorite___item___6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="Restaurant_Web_DataModel.FK__Favorite___membe__6B24EA82" ManuallyRouted="false" />
+        <AssociationConnector Association="Restaurant_Web_DataModel.FK__Staff__position___534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="Restaurant_Web_DataModel.FK__Reservati__table__5812160E" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
