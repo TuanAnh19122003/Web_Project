@@ -1,0 +1,17 @@
+﻿
+.page-menu {
+    display: flex;
+    margin-bottom: 100px;
+    padding-top: 40px;
+}
+.page-menu .menu-content-left {
+    min-width: 250px;
+    max-width: 250px;
+    margin-right: 30px;
+    padding-bottom: 24px;
+}
+.page-menu .menu-content-right {
+    flex-grow: 1;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}

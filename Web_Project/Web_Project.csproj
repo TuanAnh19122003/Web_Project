@@ -291,6 +291,7 @@
     <Content Include="Theme\css\bootstrap-reboot.css" />
     <Content Include="Theme\css\bootstrap.css" />
     <Content Include="Theme\css\magnific-popup.css" />
+    <Content Include="Theme\css\menu.css" />
     <Content Include="Theme\css\owl.carousel.min.css" />
     <Content Include="Theme\css\pagination.css" />
     <Content Include="Theme\css\style.css" />

@@ -1,4 +1,5 @@
-﻿
+﻿@model List<Web_Project.Models.Menu>
+
 @{
     ViewBag.Title = "Thực đơn";
     Layout = "~/Views/Shared/_LayoutRestaurant.cshtml";
@@ -21,6 +22,8 @@
 
     <!-- Theme Style -->
     <link href="~/Theme/css/style.css" rel="stylesheet" />
+    <link href="~/Theme/css/menu.css" rel="stylesheet" />
+
 </head>
 <body>
     <section class="home-slider-loop-false  inner-page owl-carousel">
@@ -35,12 +38,23 @@
         </div>
     </section>
 
-    <div class="section container">
-        
+    <div class="main-content container page-menu">
+        <div class="menu-content-left">
+            <h1>Loại</h1>
+        </div>
+        <div class="menu-content-right">
+            <div class="food-items">
+                @foreach (var foodItem in Model)
+                {
+                    <div class="food-item">
+                        <img src="@Url.Content("~/Theme/img/Foods" + foodItem.img)" alt="Image">
+                        <h3>@foodItem.name</h3>
+                        <p>@foodItem.description</p>
+                        <p>Price: @foodItem.price</p>
+                    </div>
+                }
+            </div>
+        </div>
     </div>
-
-    <section class="section element-animate">
-
-    </section>
 </body>
 
