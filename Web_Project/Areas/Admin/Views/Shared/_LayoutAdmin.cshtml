@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>@Page.Title</title>
+    <title>@ViewBag.Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -251,14 +251,14 @@
                             <ul class="nav nav-treeview">
 
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="@Url.Action("Index","Category")" class="nav-link">
                                         <i class="far fa-folder nav-icon"></i>
                                         <p>Dánh sách loại thực đơn</p>
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="@Url.Action("Index","Menu")" class="nav-link">
                                         <i class="fas fa-utensils nav-icon"></i>
                                         <p>Danh sách thực đơn</p>
                                     </a>
