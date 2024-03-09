@@ -25,8 +25,8 @@ namespace Web_Project.Controllers
         }
         public ActionResult Menu()
         {
-            var foodItems = db.Menus.ToList();
-            return View(foodItems);
+            var menuData = db.Menus.Include("Category").ToList();
+            return View(menuData);
         }
         public ActionResult Deals()
         {

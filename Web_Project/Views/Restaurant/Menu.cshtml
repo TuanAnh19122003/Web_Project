@@ -40,21 +40,32 @@
 
     <div class="main-content container page-menu">
         <div class="menu-content-left">
-            <h1>Loại</h1>
-        </div>
-        <div class="menu-content-right">
-            <div class="food-items">
-                @foreach (var foodItem in Model)
+            <ul class="menu-categories">
+                @foreach (var category in Model.Select(x => x.Category).Distinct())
                 {
-                    <div class="food-item">
-                        <img src="@Url.Content("~/Theme/img/Foods" + foodItem.img)" alt="Image">
-                        <h3>@foodItem.name</h3>
-                        <p>@foodItem.description</p>
-                        <p>Price: @foodItem.price</p>
+                    <li>
+                        <a href="@category.id" class="category-link">@category.name</a>
+                    </li>
+                }
+            </ul>
+        </div>
+
+        <div class="menu-content-right">
+            <div class="menu-items">
+                @foreach (var menuItem in Model)
+                {
+                    <div class="menu-item-content">
+                        <img src="~/Theme/img/Foods/@menuItem.img" alt="@menuItem.name" width="200" height="200" />
+                        <div class="item-details">
+                            <h4>@menuItem.name</h4>
+                            <p class="price">Giá: @menuItem.price</p>
+                        </div>
                     </div>
+
                 }
             </div>
         </div>
     </div>
+
 </body>
 
