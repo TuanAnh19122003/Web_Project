@@ -1,0 +1,42 @@
+﻿@model Web_Project.Models.Position
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="content-wrapper">
+    <section class="content" style="padding-top:30px">
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-6 text-end text-danger text-uppercase">
+                        Thông tin chi tiết
+                    </div>
+                    <div class="col-6 text-right">
+                        <a href="@Url.Action("Edit", new { id = Model.id })" class="btn btn-sm btn-success"> <i class="fas fa-edit"></i> Edit </a>
+                        <a href="@Url.Action("Index","Position")" class="btn btn-sm btn-success"> <i class="fas fa-long-arrow-alt-left"></i> Back </a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.id)
+                    </dt>
+
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.id)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.name)
+                    </dt>
+
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.name)
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </section>
+</div>

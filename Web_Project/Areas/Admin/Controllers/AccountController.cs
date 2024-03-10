@@ -18,7 +18,7 @@ namespace Web_Project.Areas.Admin.Controllers
         // GET: Admin/Account
         public ActionResult Index(int? page)
         {
-            int pageSize = 5;
+            int pageSize = 4;
             int pageNumber = (page ?? 1);
             var list = db.Accounts.OrderBy(b => b.id).ToPagedList(pageNumber, pageSize);
             return View(list);
