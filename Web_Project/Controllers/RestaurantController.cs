@@ -19,9 +19,17 @@ namespace Web_Project.Controllers
         {
             return View();
         }
-        public ActionResult Contact()
+        public ActionResult Contact([Bind(Include = "id,name,email,phone_number,request_date,Note")] Contact ct)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                db.Contacts.Add(ct);
+                db.SaveChanges();
+                return RedirectToAction("Contact");
+            }
+
+            ModelState.Clear();
+            return View(ct);
         }
         public ActionResult Menu()
         {
