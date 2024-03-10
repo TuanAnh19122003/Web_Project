@@ -44,7 +44,7 @@
                 @foreach (var category in Model.Select(x => x.Category).Distinct())
                 {
                     <li>
-                        <a href="@category.id" class="category-link">@category.name</a>
+                        <a href="#" id="category-link" data-category="@category.id" class="category-link">@category.name</a>
                     </li>
                 }
             </ul>
@@ -54,11 +54,11 @@
             <div class="menu-items">
                 @foreach (var menuItem in Model)
                 {
-                    <div class="menu-item-content">
+                    <div class="menu-item-content" data-category="@menuItem.category_id">
                         <img src="~/Theme/img/Foods/@menuItem.img" alt="@menuItem.name" width="200" height="200" />
                         <div class="item-details">
                             <h4>@menuItem.name</h4>
-                            <p class="price">Giá: @menuItem.price</p>
+                            <p class="price">Giá: @string.Format("{0:#,##0} đ", menuItem.price)</p>
                         </div>
                     </div>
 
@@ -67,5 +67,55 @@
         </div>
     </div>
 
+    <script>
+
+        function formatCurrency(value) {
+            return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        function showFirstCategoryItems() {
+            // Lấy danh sách tất cả các loại
+            var categoryLinks = document.querySelectorAll('.category-link');
+
+            // Kiểm tra xem có loại nào không
+            if (categoryLinks.length > 0) {
+                // Lấy ID của loại đầu tiên
+                var firstCategoryId = categoryLinks[0].getAttribute('data-category');
+
+                // Hiển thị món ăn của loại đầu tiên
+                showMenuItemsByCategory(firstCategoryId);
+            }
+        }
+
+        function showMenuItemsByCategory(categoryId) {
+            var allMenuItems = document.querySelectorAll('.menu-item-content');
+
+            allMenuItems.forEach(function (item) {
+                item.style.display = 'none';
+            });
+
+            var selectedCategoryItems = document.querySelectorAll('.menu-item-content[data-category="' + categoryId + '"]');
+
+            selectedCategoryItems.forEach(function (item) {
+                item.style.display = 'block';
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var categoryLinks = document.querySelectorAll('.category-link');
+
+            categoryLinks.forEach(function (link) {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    var selectedCategoryId = link.getAttribute('data-category');
+                    showMenuItemsByCategory(selectedCategoryId);
+                });
+            });
+
+            // Hiển thị món ăn của loại đầu tiên khi trang web được tải
+            showFirstCategoryItems();
+        });
+    </script>
 </body>
+
 
