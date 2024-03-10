@@ -69,6 +69,7 @@
                     </div>
 
 
+
                     <div class="form-group">
                         @Html.LabelFor(model => model.phone_number, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
@@ -89,28 +90,14 @@
 }
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
-    $(function () {
+    $(document).ready(function () {
         // Lấy ngày và giờ hiện tại
         var currentDate = new Date();
-        var currentYear = currentDate.getFullYear();
-        var currentMonth = ("0" + (currentDate.getMonth() + 1)).slice(-2);
-        var currentDay = ("0" + currentDate.getDate()).slice(-2);
-        var currentHours = ("0" + currentDate.getHours()).slice(-2);
-        var currentMinutes = ("0" + currentDate.getMinutes()).slice(-2);
-        var currentSeconds = ("0" + currentDate.getSeconds()).slice(-2);
 
-        // Định dạng chuỗi ngày và giờ
-        var formattedDateTime = currentYear + "-" + currentMonth + "-" + currentDay + "T" + currentHours + ":" + currentMinutes + ":" + currentSeconds;
+        // Chuyển định dạng ngày và giờ
+        var formattedDateTime = currentDate.toISOString().slice(0, 16);
 
-        // Thiết lập giá trị ngày và giờ mặc định cho trường register_date
-        $("#register_date").val(formattedDateTime);
-
-        // Kích hoạt DateTimePicker
-        $("#register_date").datetimepicker({
-            dateFormat: 'yy-mm-dd',
-            timeFormat: 'HH:mm:ss'
-            // Các tùy chọn khác tùy thuộc vào yêu cầu của bạn
-        });
+        // Gán giá trị cho trường ngày và giờ
+        $('#register_date').val(formattedDateTime);
     });
 </script>
-
