@@ -24,8 +24,8 @@ namespace Web_Project.Models
         [DisplayName("Mã loại")]
         [Required(ErrorMessage = "Vui lòng nhập mã loại thực đơn.")]
         public string id { get; set; }
-        [DisplayName("Tên loại")]
-        [Required(ErrorMessage = "Vui lòng nhập tên loại.")]
+        [DisplayName("Mã loại")]
+        [Required(ErrorMessage = "Vui lòng nhập mã loại thực đơn.")]
         public string name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

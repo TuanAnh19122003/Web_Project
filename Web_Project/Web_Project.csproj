@@ -138,7 +138,10 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ContactController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DealController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MembershipController.cs" />
     <Compile Include="Areas\Admin\Controllers\MenuController.cs" />
     <Compile Include="Areas\Admin\Controllers\PositionController.cs" />
     <Compile Include="Areas\Admin\Controllers\roleController.cs" />
@@ -287,6 +290,21 @@
     <Content Include="Areas\Admin\Views\Staff\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Staff\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Staff\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Contact\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Contact\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Contact\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Contact\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Contact\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Deal\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Deal\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Deal\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Deal\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Deal\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Membership\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Membership\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Membership\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Membership\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Membership\Delete.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -307,6 +325,7 @@
     <Content Include="Theme\css\owl.carousel.min.css" />
     <Content Include="Theme\css\pagination.css" />
     <Content Include="Theme\css\style.css" />
+    <Content Include="Theme\css\Text_Area.css" />
     <Content Include="Theme\dist\css\adminlte.css" />
     <Content Include="Theme\dist\css\adminlte.min.css" />
     <Content Include="Theme\dist\css\alt\adminlte.components.css" />
@@ -2451,6 +2470,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Theme\img\deal\" />
     <Folder Include="Theme\img\Foods\" />
     <Folder Include="Theme\img\staff\" />
   </ItemGroup>

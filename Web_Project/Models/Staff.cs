@@ -25,7 +25,7 @@ namespace Web_Project.Models
         [Required(ErrorMessage = "Vui lòng nhập mã nhân viên.")]
         public string id { get; set; }
         [DisplayName("Ảnh nhân viên")]
-        [Required(ErrorMessage = "Vui lòng nhập ảnh nhân viên.")]
+        [Required(ErrorMessage = "Vui lòng chọn ảnh nhân viên.")]
         public string img { get; set; }
         [DisplayName("Tên nhân viên")]
         [Required(ErrorMessage = "Vui lòng nhập tên nhân viên.")]
@@ -37,13 +37,13 @@ namespace Web_Project.Models
         [Required(ErrorMessage = "Vui lòng nhập số điện thoại.")]
         public string phone_number { get; set; }
         [DisplayName("Ngày sinh")]
-        [Required(ErrorMessage = "Vui lòng nhập ngày sinh nhân viên.")]
+        [Required(ErrorMessage = "Vui lòng nhập ngày sinh.")]
         public Nullable<System.DateTime> date_of_birth { get; set; }
         [DisplayName("Địa chỉ")]
-        [Required(ErrorMessage = "Vui lòng nhập địa chỉ nhân viên.")]
+        [Required(ErrorMessage = "Vui lòng nhập địa chỉ.")]
         public string address { get; set; }
         [DisplayName("Giới tính")]
-        [Required(ErrorMessage = "Vui lòng nhập giới tính nhân viên.")]
+        [Required(ErrorMessage = "Vui lòng nhập giới tính.")]
         public string gender { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

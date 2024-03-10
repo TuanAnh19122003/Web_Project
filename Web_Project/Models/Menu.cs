@@ -25,13 +25,13 @@ namespace Web_Project.Models
         [DisplayName("Mã món")]
         [Required(ErrorMessage = "Vui lòng nhập mã món.")]
         public int id { get; set; }
-        [DisplayName("Ảnh ")]
-        [Required(ErrorMessage = "Vui lòng nhập ảnh.")]
+        [DisplayName("Ảnh")]
+        [Required(ErrorMessage = "Vui lòng chọn ảnh.")]
         public string img { get; set; }
         [DisplayName("Tên món")]
         [Required(ErrorMessage = "Vui lòng nhập tên món.")]
         public string name { get; set; }
-        [DisplayName("Loại thực đơn")]
+        [DisplayName("Loại món")]
         [Required(ErrorMessage = "Vui lòng nhập mã loại thực đơn.")]
         public string category_id { get; set; }
         [DisplayName("Đơn giá")]
@@ -45,6 +45,7 @@ namespace Web_Project.Models
         public virtual ICollection<Bill_Items> Bill_Items { get; set; }
         public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        
         public virtual ICollection<Favorite_Items> Favorite_Items { get; set; }
     }
 }

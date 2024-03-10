@@ -21,11 +21,11 @@ namespace Web_Project.Models
         {
             this.Memberships = new HashSet<Membership>();
         }
-        [DisplayName("Mã người dùng")]
-        [Required(ErrorMessage = "Vui lòng nhập mã người dùng.")]
+        [DisplayName("Mã tài khoản")]
+        [Required(ErrorMessage = "Vui lòng nhập mã tài khoản.")]
         public int id { get; set; }
         [DisplayName("Ảnh")]
-        [Required(ErrorMessage = "Vui lòng chọn ảnh cho người dùng.")]
+        [Required(ErrorMessage = "Vui lòng nhập ảnh.")]
         public string img { get; set; }
         [DisplayName("Tên tài khoản")]
         [Required(ErrorMessage = "Vui lòng nhập tên tài khoản.")]
@@ -33,18 +33,16 @@ namespace Web_Project.Models
         [DisplayName("Mật khẩu")]
         [Required(ErrorMessage = "Vui lòng nhập mật khẩu.")]
         public string password { get; set; }
-        [DisplayName("Vai trò")]
-        [Required(ErrorMessage = "Vui lòng chọn vai trò.")]
+        [DisplayName("Chức vụ")]
+        [Required(ErrorMessage = "Vui lòng nhập mã chức vụ.")]
         public string role_id { get; set; }
-        [Required(ErrorMessage = "Yêu cầu nhập ngày")]
-        [DataType(DataType.Date)]
         [DisplayName("Ngày tạo")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
+        [Required(ErrorMessage = "Vui lòng nhập ngày tạo.")]
         public Nullable<System.DateTime> register_date { get; set; }
         [DisplayName("Số điện thoại")]
         [Required(ErrorMessage = "Vui lòng nhập số điện thoại.")]
         public string phone_number { get; set; }
-        
+    
         public virtual role role { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Membership> Memberships { get; set; }

@@ -1,0 +1,8 @@
+﻿
+
+
+.same-height textarea,
+.same-height input[type="text"] {
+    width: 855px;
+    height: 100px;
+}
