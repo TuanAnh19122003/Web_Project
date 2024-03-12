@@ -35,20 +35,45 @@
                 <div class="collapse navbar-collapse" id="navbarsExample05">
                     <ul class="navbar-nav ml-auto pl-lg-5 pl-0">
                         <li class="nav-item">
-                            <a class="nav-link active" href="/Restaurant/Index">Trang chủ</a>
+                            <a class="nav-link ahover active" href="/Restaurant/Index">Trang chủ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/Restaurant/AboutUs">Giới thiệu</a>
+                            <a class="nav-link ahover" href="/Restaurant/AboutUs">Giới thiệu</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/Restaurant/Menu">Thực đơn</a>
+                            <a class="nav-link ahover" href="/Restaurant/Menu">Thực đơn</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Ưu đãi</a>
+                            <a class="nav-link ahover" href="/Restaurant/Deals">Ưu đãi</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Đặt bàn</a>
+                            <a class="nav-link ahover" href="#">Đặt bàn</a>
                         </li>
+                        @if (Session["user"] != null)
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link ahover" data-toggle="dropdown">
+                                    <i class="fa fa-user"></i>
+                                    @{
+                                        var user = (Web_Project.Models.Account)HttpContext.Current.Session["user"];
+                                        <span>@user.account1</span>
+                                    }
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="/Admin/Dashboard/Logout"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        }
+                        else
+                        {
+                            <!-- Liên kết Đăng Nhập -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Admin/Dashboard/Login"><i class="fa fa-user"></i> Đăng nhập</a>
+                            </li>
+                        }
                     </ul>
 
                     <ul class="navbar-nav ml-auto">

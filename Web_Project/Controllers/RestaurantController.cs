@@ -30,6 +30,7 @@ namespace Web_Project.Controllers
 
             ModelState.Clear();
             return View(ct);
+
         }
         public ActionResult Menu()
         {

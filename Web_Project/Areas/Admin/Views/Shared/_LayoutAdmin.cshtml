@@ -31,7 +31,6 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <!-- Navbar Search -->
-                <li class="nav-header">Quản lý</li>
                 <li class="nav-item">
                     <a class="nav-link" data-widget="navbar-search" href="#" role="button">
                         <i class="fas fa-search"></i>
@@ -143,10 +142,22 @@
                         <i class="fas fa-expand-arrows-alt"></i>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                        <i class="fas fa-th-large"></i>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown">
+                        <i class="fa fa-user"></i>
+                        @{ 
+                            var user = (Web_Project.Models.Account)HttpContext.Current.Session["user"];
+                            <span>@user.account1</span>
+                        }
                     </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> User profile </a>
+                        </li>
+                        <li>
+                            <a href="/Admin/Dashboard/Logout"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </nav>

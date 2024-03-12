@@ -305,6 +305,7 @@
     <Content Include="Areas\Admin\Views\Membership\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Membership\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Membership\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Dashboard\Login.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -320,6 +321,7 @@
     <Content Include="Theme\css\bootstrap-grid.css" />
     <Content Include="Theme\css\bootstrap-reboot.css" />
     <Content Include="Theme\css\bootstrap.css" />
+    <Content Include="Theme\css\login.css" />
     <Content Include="Theme\css\magnific-popup.css" />
     <Content Include="Theme\css\menu.css" />
     <Content Include="Theme\css\owl.carousel.min.css" />
@@ -426,6 +428,7 @@
     <Content Include="Theme\js\jquery-3.2.1.min.js" />
     <Content Include="Theme\js\jquery.magnific-popup.min.js" />
     <Content Include="Theme\js\jquery.waypoints.min.js" />
+    <Content Include="Theme\js\login.js" />
     <Content Include="Theme\js\magnific-popup-options.js" />
     <Content Include="Theme\js\main.js" />
     <Content Include="Theme\js\owl.carousel.min.js" />
@@ -2466,6 +2469,7 @@
     <Content Include="Views\Restaurant\AboutUs.cshtml" />
     <Content Include="Views\Restaurant\Contact.cshtml" />
     <Content Include="Views\Restaurant\Menu.cshtml" />
+    <Content Include="Views\Restaurant\Deals.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

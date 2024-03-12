@@ -119,6 +119,7 @@ header {
   left: 0;
   width: 100%;
   z-index: 5;
+  color: yellowgreen;
   padding: 0px 0;
 }
 
@@ -172,7 +173,7 @@ header .navbar {
 header .navbar .nav-link {
   padding: 1.7rem 1rem;
   outline: none !important;
-  font-size: 12px;
+  font-size: 14px;
   text-transform: uppercase;
   letter-spacing: .2em;
   color: white !important;
@@ -187,15 +188,18 @@ header .navbar .nav-link {
 header .navbar .nav-link.active {
   color: #fff;
 }
-
+.nav-link .ahover:hover {
+    background-color: white;
+    color: red;
+}
 header .navbar .dropdown-menu {
-  font-size: 14px;
-  border-radius: 4px;
-  border: none;
-  -webkit-box-shadow: 0 2px 30px 0px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 2px 30px 0px rgba(0, 0, 0, 0.2);
-  min-width: 13em;
-  margin-top: -10px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: none;
+    -webkit-box-shadow: 0 2px 30px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 30px 0px rgba(0, 0, 0, 0.2);
+    min-width: 13em;
+    margin-top: -10px;
 }
 
 header .navbar .dropdown-menu:before {
