@@ -56,7 +56,7 @@ namespace Web_Project.Areas.Admin.Controllers
         {
             Session.Remove("user");
             FormsAuthentication.SignOut();
-            return RedirectToAction("Login");
+            return RedirectToAction("Index", "Restaurant", new { area = "" });
         }
     }
 }

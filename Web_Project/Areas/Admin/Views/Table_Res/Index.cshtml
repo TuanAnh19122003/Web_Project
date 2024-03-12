@@ -1,7 +1,5 @@
-﻿@model PagedList.IPagedList<Web_Project.Models.role>
+﻿@model PagedList.IPagedList<Web_Project.Models.Table_Res>
 @using PagedList.Mvc;
-
-<!-- The rest of your HTML code -->
 
 @{
     ViewBag.Title = "Index";
@@ -10,6 +8,7 @@
 <head>
     <title>@ViewBag.Title</title>
     <link href="~/Theme/css/pagination.css" rel="stylesheet" />
+    <link href="~/Theme/css/Switch.css" rel="stylesheet" />
 </head>
 <div class="content-wrapper">
     <section class="content" style="padding-top:30px">
@@ -18,10 +17,10 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-6 text-end text-danger text-uppercase">
-                        Danh sách quyền
+                        Danh sách bàn
                     </div>
                     <div class="col-6 text-right">
-                        <a href="@Url.Action("Create","role")" class="btn btn-success"><i class="fas fa-plus"></i> Thêm</a>
+                        <a href="@Url.Action("Create","Table_Res")" class="btn btn-success"><i class="fas fa-plus"></i> Thêm</a>
                     </div>
                 </div>
             </div>
@@ -30,6 +29,15 @@
                     <tr>
                         <th>
                             @Html.DisplayNameFor(model => model.First().name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.First().location)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.First().quantity)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.First().status)
                         </th>
                         <th>
                             Chức năng
@@ -43,12 +51,26 @@
                                 @Html.DisplayFor(modelItem => item.name)
                             </td>
                             <td>
+                                @Html.DisplayFor(modelItem => item.location)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.quantity)
+                            </td>
+                            <td>
+                                <label class="switch">
+                                    <input type="checkbox" @(item.status.HasValue && item.status.Value ? "checked" : "") disabled />
+                                    <span class="slider round"></span>
+                                </label>
+                            </td>
+
+                            <td>
                                 <a href="@Url.Action("Edit", new { id = item.id })" class="btn btn-warning"><i class="fas fa-edit"></i></a>
                                 <a href="@Url.Action("Details", new { id = item.id })" class="btn btn-info"><i class="far fa-eye"></i></a>
                                 <a href="@Url.Action("Delete", new { id = item.id })" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                             </td>
                         </tr>
                     }
+
                 </table>
                 <div class="pagination">
                     @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
@@ -57,4 +79,3 @@
         </div>
     </section>
 </div>
-

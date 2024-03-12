@@ -146,6 +146,7 @@
     <Compile Include="Areas\Admin\Controllers\PositionController.cs" />
     <Compile Include="Areas\Admin\Controllers\roleController.cs" />
     <Compile Include="Areas\Admin\Controllers\StaffController.cs" />
+    <Compile Include="Areas\Admin\Controllers\Table_ResController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RestaurantController.cs" />
     <Compile Include="Global.asax.cs">
@@ -306,6 +307,11 @@
     <Content Include="Areas\Admin\Views\Membership\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Membership\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Dashboard\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\Table_Res\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Table_Res\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Table_Res\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Table_Res\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Table_Res\Delete.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -327,6 +333,7 @@
     <Content Include="Theme\css\owl.carousel.min.css" />
     <Content Include="Theme\css\pagination.css" />
     <Content Include="Theme\css\style.css" />
+    <Content Include="Theme\css\Switch.css" />
     <Content Include="Theme\css\Text_Area.css" />
     <Content Include="Theme\dist\css\adminlte.css" />
     <Content Include="Theme\dist\css\adminlte.min.css" />
