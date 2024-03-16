@@ -144,6 +144,7 @@
     <Compile Include="Areas\Admin\Controllers\MembershipController.cs" />
     <Compile Include="Areas\Admin\Controllers\MenuController.cs" />
     <Compile Include="Areas\Admin\Controllers\PositionController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ReservationController.cs" />
     <Compile Include="Areas\Admin\Controllers\roleController.cs" />
     <Compile Include="Areas\Admin\Controllers\StaffController.cs" />
     <Compile Include="Areas\Admin\Controllers\Table_ResController.cs" />
@@ -312,6 +313,12 @@
     <Content Include="Areas\Admin\Views\Table_Res\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Table_Res\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Table_Res\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Dashboard\Register.cshtml" />
+    <Content Include="Areas\Admin\Views\Reservation\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Reservation\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Reservation\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Reservation\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Reservation\Edit.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -332,6 +339,7 @@
     <Content Include="Theme\css\menu.css" />
     <Content Include="Theme\css\owl.carousel.min.css" />
     <Content Include="Theme\css\pagination.css" />
+    <Content Include="Theme\css\Reservation.css" />
     <Content Include="Theme\css\style.css" />
     <Content Include="Theme\css\Switch.css" />
     <Content Include="Theme\css\Text_Area.css" />
@@ -2477,6 +2485,7 @@
     <Content Include="Views\Restaurant\Contact.cshtml" />
     <Content Include="Views\Restaurant\Menu.cshtml" />
     <Content Include="Views\Restaurant\Deals.cshtml" />
+    <Content Include="Views\Restaurant\Reservation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

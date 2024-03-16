@@ -1,8 +1,70 @@
-﻿
+﻿@model PagedList.IPagedList<Web_Project.Models.Deal>
+@using PagedList.Mvc;
+
 @{
     ViewBag.Title = "Deals";
     Layout = "~/Views/Shared/_LayoutRestaurant.cshtml";
 }
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800" rel="stylesheet">
 
-<h2>Deals</h2>
+    <link href="~/Theme/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Theme/css/animate.css" rel="stylesheet" />
+    <link href="~/Theme/css/owl.carousel.min.css" rel="stylesheet" />
+    <link href="~/Theme/css/magnific-popup.css" rel="stylesheet" />
 
+    <link href="~/Theme/fonts/ionicons/css/ionicons.css" rel="stylesheet" />
+    <link href="~/Theme/fonts/fontawesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Theme/fonts/flaticons/font/flaticon.css" rel="stylesheet" />
+
+    <!-- Theme Style -->
+    <link href="~/Theme/css/style.css" rel="stylesheet" />
+    <link href="~/Theme/css/pagination.css" rel="stylesheet" />
+</head>
+<style>
+    .detail {
+        height: 370px;
+    }
+</style>
+<body>
+    <section class="home-slider-loop-false  inner-page owl-carousel">
+        <div class="slider-item" style="background-image: url('/Theme/img/media/hero_2.jpg');">
+            <div class="container">
+                <div class="row slider-text align-items-center justify-content-center">
+                    <div class="col-md-8 text-center col-sm-12 element-animate">
+                        <h1>Deal</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                @foreach (var deal in Model)
+                {
+                    <div class="col-md-4 mb-4">
+                        <div class="card animated fadeInUp">
+                            <img class="card-img-top" src="~/Theme/img/deal/@deal.img" alt="@deal.name" width="200" height="200" />
+                            <div class="card-body">
+                                <p class="card-text text-danger" style="height: 50px; font-weight:bold">@deal.name</p>
+                                <p class="card-text" style="height: 200px; color: #333; font-size: 16px;">@deal.description</p>
+                                <a href="@Url.Action("Details", "Deal", new { id = deal.id })" class="btn btn-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="row">
+                <div class="col">
+                    <!-- Hiển thị phân trang nếu cần -->
+                    @Html.PagedListPager(Model, page => Url.Action("Deals", new { page }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "deal-list" }))
+                </div>
+            </div>
+        </div>
+    </section>
+</body>

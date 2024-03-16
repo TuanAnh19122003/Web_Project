@@ -1,0 +1,95 @@
+﻿
+/* Định dạng phần tử form */
+.Contact {
+    margin-top: 50px;
+}
+
+/* Định dạng phần tử label */
+.control-label {
+    font-weight: bold;
+}
+
+/* Định dạng phần tử input */
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Định dạng phần tử button */
+.btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Định dạng phần tử button khi rê chuột qua */
+.btn:hover {
+    background-color: #45a049;
+}
+
+/* Định dạng phần tử error message */
+.text-danger {
+    color: red;
+}
+
+/* Định dạng phần tử container */
+.container {
+    padding: 20px;
+}
+
+/* Định dạng phần tử slider */
+.slider-item {
+    text-align: center;
+    padding: 100px 0;
+    color: #fff;
+}
+
+/* Định dạng tiêu đề */
+h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+/* Định dạng phần tử row */
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+/* Định dạng phần tử col-md */
+.col-md-10 {
+    width: 83.33333333%;
+    float: left;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* Định dạng phần tử col-md-offset */
+.col-md-offset-2 {
+    margin-left: 16.66666667%;
+}
+
+/* Định dạng phần tử form-group */
+.form-group {
+    margin-bottom: 15px;
+}
+
+    /* Định dạng phần tử form-group cho label và input */
+.form-group label,
+.form-group input {
+    display: block;
+}
+
+/* Định dạng phần tử form-group cho label và select */
+.form-group label,
+.form-group select {
+    display: block;
+}

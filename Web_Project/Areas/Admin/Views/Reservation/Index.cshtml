@@ -1,0 +1,100 @@
+﻿@model PagedList.IPagedList<Web_Project.Models.Reservation>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<head>
+    <link href="~/Theme/css/pagination.css" rel="stylesheet" />
+</head>
+<div class="content-wrapper">
+    <section class="content" style="padding-top:30px">
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-6 text-end text-danger text-uppercase">
+                        Danh sách đặt bàn
+                    </div>
+                    <div class="col-6 text-right">
+                        <a href="@Url.Action("Create","Reservation")" class="btn btn-success"><i class="fas fa-plus"></i> Thêm</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.First().reservation_id)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.First().customer_name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.First().phone_number)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.First().table_id)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.First().quantity)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.First().reservation_time)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.First().reservation_date)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.First().Note)
+                        </th>
+                        <th>
+                            Chức năng
+                        </th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.reservation_id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.customer_name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.phone_number)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.table_id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.quantity)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.reservation_time)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.reservation_date)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Note)
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Edit", new { id = item.reservation_id })" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="@Url.Action("Details", new { id = item.reservation_id })" class="btn btn-info"><i class="far fa-eye"></i></a>
+                                <a href="@Url.Action("Delete", new { id = item.reservation_id })" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+                <div class="pagination">
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

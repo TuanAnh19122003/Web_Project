@@ -142,11 +142,16 @@
                         <i class="fas fa-expand-arrows-alt"></i>
                     </a>
                 </li>
+                @{
+                    var user = (Web_Project.Models.Account)HttpContext.Current.Session["user"];
+                }
+
+                <!-- Navbar Dropdown -->
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown">
                         <i class="fa fa-user"></i>
-                        @{ 
-                            var user = (Web_Project.Models.Account)HttpContext.Current.Session["user"];
+                        @if (user != null)
+                        {
                             <span>@user.account1</span>
                         }
                     </a>
@@ -155,10 +160,11 @@
                             <a href="#"><i class="fa fa-user fa-fw"></i> User profile </a>
                         </li>
                         <li>
-                            <a href="/Admin/Dashboard/Logout"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                            <a href="/Admin/Dashboard/Logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                 </li>
+
             </ul>
         </nav>
         <!-- /.navbar -->
@@ -278,7 +284,7 @@
 
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
-                                        <i class="fas fa-heart-o nav-icon"></i>
+                                        <i class="fas fa-heart nav-icon"></i>
                                         <p>Danh sách yêu thích</p>
                                     </a>
                                 </li>
@@ -302,7 +308,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="@Url.Action("Index","Reservation")" class="nav-link">
                                         <i class="fas fa-calendar-alt nav-icon"></i>
                                         <p>Danh sách đặt bàn</p>
                                     </a>

@@ -1,0 +1,157 @@
+﻿@model Web_Project.Models.Account
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Register</title>
+    <link href="~/Theme/css/login.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #f0f0f0;
+        }
+
+        .login-page {
+            width: 360px;
+            padding: 8% 0 0;
+            margin: auto;
+        }
+
+        .form {
+            position: relative;
+            z-index: 1;
+            background: #FFFFFF;
+            max-width: 360px;
+            margin: 0 auto 100px;
+            padding: 45px;
+            text-align: center;
+            box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+        }
+
+        .form input {
+            font-family: "Roboto", sans-serif;
+            outline: 0;
+            background: #f2f2f2;
+            width: 100%;
+            border: 0;
+            margin: 0 0 15px;
+            padding: 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        .form button {
+            font-family: "Roboto", sans-serif;
+            text-transform: uppercase;
+            outline: 0;
+            background: #4CAF50;
+            width: 100%;
+            border: 0;
+            padding: 15px;
+            color: #FFFFFF;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .form button:hover, .form button:active {
+            background: #43A047;
+        }
+
+        .form .message {
+            margin: 15px 0 0;
+            color: #b3b3b3;
+            font-size: 12px;
+        }
+
+        .form .message a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .form .register-form {
+            display: none;
+        }
+        /* CSS cho dropdown list */
+        .form-group .col-md-10 select {
+            font-family: "Roboto", sans-serif;
+            outline: 0;
+            background: #f2f2f2;
+            width: 100%;
+            border: 0;
+            margin: 0 0 15px;
+            padding: 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        /* CSS cho thông báo lỗi */
+        .text-danger {
+            color: #FF0000; /* Màu chữ đỏ */
+            font-size: 12px;
+            margin-top: 5px; /* Khoảng cách giữa dropdown list và thông báo lỗi */
+        }
+
+        .img-thumbnail {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-page">
+        @using (Html.BeginForm("Create", "Account", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <input type="file" name="img" accept="image/*" class="form-control" />
+            @Html.ValidationMessageFor(model => model.img, "", new { @class = "text-danger" })
+            if (!string.IsNullOrEmpty(Model?.img))
+            {
+                <img src="~/Theme/img/Foods/@Path.GetFileName(Model.img)" alt="Uploaded Image" class="img-thumbnail" width="100" height="100" />
+            }
+
+            <input type="text" placeholder="Username" name="account1" />
+            @Html.ValidationMessageFor(model => model.account1, "", new { @class = "text-danger" })
+
+            <input type="password" placeholder="Password" name="password" />
+            @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+
+            <input type="datetime-local" id="register_date" name="register_date" class="form-control" />
+            @Html.ValidationMessageFor(model => model.register_date, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                
+                <div class="col-md-10">
+                    @Html.DropDownList("role_id", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.role_id, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <input type="text" placeholder="Phone Number" name="phone_number" />
+            @Html.ValidationMessageFor(model => model.phone_number, "", new { @class = "text-danger" })
+
+            <button type="submit">create</button>
+
+            <p class="message">Already registered? <a href="#">Sign In</a></p>
+        }
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Lấy ngày và giờ hiện tại
+            var currentDate = new Date();
+
+            // Chuyển định dạng ngày và giờ
+            var formattedDateTime = currentDate.toISOString().slice(0, 16);
+
+            // Gán giá trị cho trường ngày và giờ
+            $('#register_date').val(formattedDateTime);
+        });
+    </script>
+</body>
+</html>

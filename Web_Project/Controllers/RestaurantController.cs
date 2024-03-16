@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -37,9 +38,25 @@ namespace Web_Project.Controllers
             var menuData = db.Menus.Include("Category").ToList();
             return View(menuData);
         }
-        public ActionResult Deals()
+        public ActionResult Deals(int ? page)
         {
-            return View();
+            int pageSize = 6;
+            int pageNumber = (page ?? 1);
+            var list = db.Deals.OrderBy(b => b.id).ToPagedList(pageNumber, pageSize);
+            return View(list);
         }
+        public ActionResult Reservation([Bind(Include = "reservation_id,customer_name,phone_number,table_id,quantity,reservation_time,reservation_date,Note")] Reservation res)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Reservations.Add(res);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.table_id = new SelectList(db.Table_Res, "id", "name", res.table_id);
+            ModelState.Clear();
+            return View(res);
+        }
+
     }
 }
