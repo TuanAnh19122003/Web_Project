@@ -1,0 +1,132 @@
+﻿@model Web_Project.Models.Reservation
+
+@{
+    ViewBag.Title = "Reservation";
+    Layout = "~/Views/Shared/_LayoutRestaurant.cshtml";
+}
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800" rel="stylesheet">
+
+    <link href="~/Theme/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Theme/css/animate.css" rel="stylesheet" />
+    <link href="~/Theme/css/owl.carousel.min.css" rel="stylesheet" />
+    <link href="~/Theme/css/magnific-popup.css" rel="stylesheet" />
+
+    <link href="~/Theme/fonts/ionicons/css/ionicons.css" rel="stylesheet" />
+    <link href="~/Theme/fonts/fontawesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Theme/fonts/flaticons/font/flaticon.css" rel="stylesheet" />
+
+    <!-- Theme Style -->
+    <link href="~/Theme/css/style.css" rel="stylesheet" />
+</head>
+<style>
+    .dropdown-custom {
+        height: 50px;
+    }
+    /* Định nghĩa một lớp CSS tùy chỉnh cho khung ghi chú */
+    .textarea-custom {
+        height: 150px; /* Đặt chiều cao mong muốn */
+        padding: 10px; /* Thêm phần lề bên trong */
+        font-size: 16px; /* Đặt kích thước chữ */
+        border: 1px solid #ced4da; /* Đặt đường viền */
+        border-radius: 5px; /* Đặt độ cong viền */
+        resize: vertical; /* Cho phép điều chỉnh kích thước theo chiều dọc */
+    }
+    .form-group .form-control.dropdown-custom {
+        height: 50px;
+    }
+</style>
+<body>
+    <section class="home-slider-loop-false  inner-page owl-carousel">
+        <div class="slider-item" style="background-image: url('/Theme/img/media/hero_2.jpg');">
+            <div class="container">
+                <div class="row slider-text align-items-center justify-content-center">
+                    <div class="col-md-8 text-center col-sm-12 element-animate">
+                        <h1>Deal</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reservation-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="reservation-form-wrap mb-5">
+                        <h2 class="section-title mb-4">Đặt Bàn</h2>
+                        @using (Html.BeginForm("Reservation", "Restaurant", FormMethod.Post, new { @class = "reservation-form", id = "reservationForm" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    @Html.LabelFor(model => model.customer_name, htmlAttributes: new { @class = "control-label" })
+                                    @Html.EditorFor(model => model.customer_name, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.customer_name, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    @Html.LabelFor(model => model.phone_number, htmlAttributes: new { @class = "control-label" })
+                                    @Html.EditorFor(model => model.phone_number, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.phone_number, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    @Html.LabelFor(model => model.table_id, "Bàn", htmlAttributes: new { @class = "control-label" })
+                                    @Html.DropDownList("table_id", null, new { @class = "form-control", style = "height: 50px;" })
+                                    @Html.ValidationMessageFor(model => model.table_id, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="col-md-6 form-group">
+                                    @Html.LabelFor(model => model.quantity, htmlAttributes: new { @class = "control-label" })
+                                    @Html.EditorFor(model => model.quantity, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.quantity, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    @Html.LabelFor(model => model.reservation_date, htmlAttributes: new { @class = "control-label" })
+                                    <input type="date" id="reservation_date" name="reservation_date" class="form-control">
+                                    @Html.ValidationMessageFor(model => model.reservation_date, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    @Html.LabelFor(model => model.reservation_time, htmlAttributes: new { @class = "control-label" })
+                                    <input type="time" id="reservation_time" name="reservation_time" class="form-control">
+                                    @Html.ValidationMessageFor(model => model.reservation_time, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Note, htmlAttributes: new { @class = "control-label" })
+                                @Html.TextAreaFor(model => model.Note, new { @class = "form-control textarea-custom" })
+                                @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group">
+                                <input type="submit" value="Đặt Bàn" class="btn btn-primary btn-block">
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="~/Theme/js/jquery-3.2.1.min.js"></script>
+    <script src="~/Theme/js/popper.min.js"></script>
+    <script src="~/Theme/js/bootstrap.min.js"></script>
+    <script src="~/Theme/js/owl.carousel.min.js"></script>
+    <script src="~/Theme/js/jquery.waypoints.min.js"></script>
+    <script src="~/Theme/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/Theme/js/magnific-popup-options.js"></script>
+    <script src="~/Theme/js/main.js"></script>
+</body>

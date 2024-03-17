@@ -2485,6 +2485,7 @@
     <Content Include="Views\Restaurant\Contact.cshtml" />
     <Content Include="Views\Restaurant\Menu.cshtml" />
     <Content Include="Views\Restaurant\Deals.cshtml" />
+    <Content Include="Views\Restaurant\Reservation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

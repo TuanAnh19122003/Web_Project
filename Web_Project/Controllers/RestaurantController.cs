@@ -51,10 +51,10 @@ namespace Web_Project.Controllers
             {
                 db.Reservations.Add(res);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Reservation");
             }
-            ViewBag.table_id = new SelectList(db.Table_Res, "id", "name", res.table_id);
             ModelState.Clear();
+            ViewBag.table_id = new SelectList(db.Table_Res, "id", "name");
             return View(res);
         }
 
