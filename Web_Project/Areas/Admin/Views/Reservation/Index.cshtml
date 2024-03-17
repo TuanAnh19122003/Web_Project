@@ -5,8 +5,8 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
-
 <head>
+    <title>@ViewBag.Title</title>
     <link href="~/Theme/css/pagination.css" rel="stylesheet" />
 </head>
 <div class="content-wrapper">
@@ -36,7 +36,7 @@
                             @Html.DisplayNameFor(model => model.First().phone_number)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.First().table_id)
+                            Bàn
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model.First().quantity)

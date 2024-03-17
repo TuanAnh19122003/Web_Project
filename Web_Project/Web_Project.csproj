@@ -317,8 +317,8 @@
     <Content Include="Areas\Admin\Views\Reservation\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Reservation\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Reservation\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Reservation\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Reservation\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Reservation\Delete.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2485,7 +2485,6 @@
     <Content Include="Views\Restaurant\Contact.cshtml" />
     <Content Include="Views\Restaurant\Menu.cshtml" />
     <Content Include="Views\Restaurant\Deals.cshtml" />
-    <Content Include="Views\Restaurant\Reservation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

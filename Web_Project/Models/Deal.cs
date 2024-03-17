@@ -22,8 +22,8 @@ namespace Web_Project.Models
         [DisplayName("Tên ưu đãi")]
         [Required(ErrorMessage = "Vui lòng nhập tên ưu đãi.")]
         public string name { get; set; }
-        [DisplayName("Ảnh")]
-        [Required(ErrorMessage = "Vui lòng chọn ảnh.")]
+        [DisplayName("Ảnh ưu dãi")]
+        [Required(ErrorMessage = "Vui lòng nhập ảnh ưu đãi.")]
         public string img { get; set; }
         [DisplayName("Mô tả")]
         [Required(ErrorMessage = "Vui lòng nhập mô tả.")]

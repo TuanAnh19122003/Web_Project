@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 using Web_Project.Models;
 
 namespace Web_Project.Areas.Admin.Controllers
@@ -55,7 +56,7 @@ namespace Web_Project.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.table_id = new SelectList(db.Table_Res, "id", "name", res.table_id);
+
             return View(res);
         }
 
@@ -86,6 +87,8 @@ namespace Web_Project.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
+            ViewBag.table_id = new SelectList(db.Reservations, "id", "name", res.table_id);
             return View(res);
         }
 
@@ -101,7 +104,6 @@ namespace Web_Project.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.table_id = new SelectList(db.Table_Res, "id", "name", res.table_id);
             return View(res);
         }
 

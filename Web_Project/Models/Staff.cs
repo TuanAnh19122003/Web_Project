@@ -25,7 +25,7 @@ namespace Web_Project.Models
         [Required(ErrorMessage = "Vui lòng nhập mã nhân viên.")]
         public string id { get; set; }
         [DisplayName("Ảnh nhân viên")]
-        [Required(ErrorMessage = "Vui lòng chọn ảnh nhân viên.")]
+        [Required(ErrorMessage = "Vui lòng nhập ảnh nhân viên.")]
         public string img { get; set; }
         [DisplayName("Tên nhân viên")]
         [Required(ErrorMessage = "Vui lòng nhập tên nhân viên.")]

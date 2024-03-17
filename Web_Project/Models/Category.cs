@@ -22,10 +22,10 @@ namespace Web_Project.Models
             this.Menus = new HashSet<Menu>();
         }
         [DisplayName("Mã loại")]
-        [Required(ErrorMessage = "Vui lòng nhập mã loại thực đơn.")]
+        [Required(ErrorMessage = "Vui lòng nhập mã loại.")]
         public string id { get; set; }
-        [DisplayName("Mã loại")]
-        [Required(ErrorMessage = "Vui lòng nhập mã loại thực đơn.")]
+        [DisplayName("Tên loại")]
+        [Required(ErrorMessage = "Vui lòng nhập tên loại.")]
         public string name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

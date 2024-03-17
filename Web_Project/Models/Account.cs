@@ -21,20 +21,20 @@ namespace Web_Project.Models
         {
             this.Memberships = new HashSet<Membership>();
         }
-        [DisplayName("Mã tài khoản")]
-        [Required(ErrorMessage = "Vui lòng nhập mã tài khoản.")]
+        [DisplayName("Mã người dùng")]
+        [Required(ErrorMessage = "Vui lòng nhập mã người dùng.")]
         public int id { get; set; }
-        [DisplayName("Ảnh")]
-        [Required(ErrorMessage = "Vui lòng nhập ảnh.")]
+        [DisplayName("Ảnh người dùng")]
+        [Required(ErrorMessage = "Vui lòng nhập ảnh người dùng.")]
         public string img { get; set; }
-        [DisplayName("Tên tài khoản")]
-        [Required(ErrorMessage = "Vui lòng nhập tên tài khoản.")]
+        [DisplayName("Tài khoản")]
+        [Required(ErrorMessage = "Vui lòng nhập tài khoản.")]
         public string account1 { get; set; }
         [DisplayName("Mật khẩu")]
         [Required(ErrorMessage = "Vui lòng nhập mật khẩu.")]
         public string password { get; set; }
-        [DisplayName("Chức vụ")]
-        [Required(ErrorMessage = "Vui lòng nhập mã chức vụ.")]
+        [DisplayName("Quyền")]
+        [Required(ErrorMessage = "Vui lòng nhập mã quyền.")]
         public string role_id { get; set; }
         [DisplayName("Ngày tạo")]
         [Required(ErrorMessage = "Vui lòng nhập ngày tạo.")]

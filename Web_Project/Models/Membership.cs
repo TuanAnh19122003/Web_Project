@@ -28,10 +28,10 @@ namespace Web_Project.Models
         [DisplayName("Tên thành viên")]
         [Required(ErrorMessage = "Vui lòng nhập tên thành viên.")]
         public string name { get; set; }
-        [DisplayName("Điểm")]
-        [Required(ErrorMessage = "Vui lòng nhập điểm.")]
+        [DisplayName("Điểm thành viên")]
+        [Required(ErrorMessage = "Vui lòng nhập điểm thành viên.")]
         public Nullable<int> points { get; set; }
-        [DisplayName("Tài khoản")]
+        [DisplayName("Mã tài khoản")]
         [Required(ErrorMessage = "Vui lòng nhập mã tài khoản.")]
         public Nullable<int> account_id { get; set; }
     

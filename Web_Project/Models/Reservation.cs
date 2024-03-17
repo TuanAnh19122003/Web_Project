@@ -37,10 +37,10 @@ namespace Web_Project.Models
         [Required(ErrorMessage = "Vui lòng nhập số lượng.")]
         public Nullable<int> quantity { get; set; }
         [DisplayName("Thời gian đặt bàn")]
-        [Required(ErrorMessage = "Vui lòng nhập thời gian đặt bàn.")]
+        [Required(ErrorMessage = "Vui lòng nhập thời gian đặt.")]
         public Nullable<System.TimeSpan> reservation_time { get; set; }
         [DisplayName("Ngày đặt bàn")]
-        [Required(ErrorMessage = "Vui lòng nhập đặt bàn.")]
+        [Required(ErrorMessage = "Vui lòng nhập ngày đặt bàn.")]
         public Nullable<System.DateTime> reservation_date { get; set; }
         [DisplayName("Ghi chú")]
         public string Note { get; set; }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Restaurant_Web_DataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Restaurant_Web_DataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Accounts">
           <Key>
             <PropertyRef Name="id" />
@@ -14,7 +14,7 @@
           <Property Name="account" Type="nvarchar" MaxLength="255" />
           <Property Name="password" Type="nvarchar" MaxLength="255" />
           <Property Name="role_id" Type="nvarchar" MaxLength="50" />
-          <Property Name="register_date" Type="date" />
+          <Property Name="register_date" Type="datetime" />
           <Property Name="phone_number" Type="nvarchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="Bill_Items">
@@ -118,13 +118,13 @@
             <PropertyRef Name="reservation_id" />
           </Key>
           <Property Name="reservation_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="customer_name" Type="varchar" MaxLength="255" />
+          <Property Name="customer_name" Type="nvarchar" MaxLength="255" />
           <Property Name="phone_number" Type="varchar" MaxLength="50" />
           <Property Name="table_id" Type="int" />
           <Property Name="quantity" Type="int" />
           <Property Name="reservation_time" Type="time" Precision="7" />
           <Property Name="reservation_date" Type="date" />
-          <Property Name="Note" Type="varchar" MaxLength="255" />
+          <Property Name="Note" Type="nvarchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="role">
           <Key>
@@ -387,11 +387,79 @@
             <End Role="Staff" EntitySet="Staff" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Restaurant_Web_DataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Restaurant_Web_DataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accounts" EntityType="Restaurant_Web_DataModel.Account" />
+          <EntitySet Name="Bill_Items" EntityType="Restaurant_Web_DataModel.Bill_Items" />
+          <EntitySet Name="Bills" EntityType="Restaurant_Web_DataModel.Bill" />
+          <EntitySet Name="Card_payments" EntityType="Restaurant_Web_DataModel.Card_payments" />
+          <EntitySet Name="Categories" EntityType="Restaurant_Web_DataModel.Category" />
+          <EntitySet Name="Contacts" EntityType="Restaurant_Web_DataModel.Contact" />
+          <EntitySet Name="Deals" EntityType="Restaurant_Web_DataModel.Deal" />
+          <EntitySet Name="Favorite_Items" EntityType="Restaurant_Web_DataModel.Favorite_Items" />
+          <EntitySet Name="Memberships" EntityType="Restaurant_Web_DataModel.Membership" />
+          <EntitySet Name="Menus" EntityType="Restaurant_Web_DataModel.Menu" />
+          <EntitySet Name="Positions" EntityType="Restaurant_Web_DataModel.Position" />
+          <EntitySet Name="Reservations" EntityType="Restaurant_Web_DataModel.Reservation" />
+          <EntitySet Name="roles" EntityType="Restaurant_Web_DataModel.role" />
+          <EntitySet Name="Staffs" EntityType="Restaurant_Web_DataModel.Staff" />
+          <EntitySet Name="Table_Res" EntityType="Restaurant_Web_DataModel.Table_Res" />
+          <AssociationSet Name="FK__Accounts__role_i__4BAC3F29" Association="Restaurant_Web_DataModel.FK__Accounts__role_i__4BAC3F29">
+            <End Role="role" EntitySet="roles" />
+            <End Role="Account" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Membershi__accou__4E88ABD4" Association="Restaurant_Web_DataModel.FK__Membershi__accou__4E88ABD4">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="Membership" EntitySet="Memberships" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bill_Item__bill___6754599E" Association="Restaurant_Web_DataModel.FK__Bill_Item__bill___6754599E">
+            <End Role="Bill" EntitySet="Bills" />
+            <End Role="Bill_Items" EntitySet="Bill_Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bill_Item__item___68487DD7" Association="Restaurant_Web_DataModel.FK__Bill_Item__item___68487DD7">
+            <End Role="Menu" EntitySet="Menus" />
+            <End Role="Bill_Items" EntitySet="Bill_Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bills__card_id__6477ECF3" Association="Restaurant_Web_DataModel.FK__Bills__card_id__6477ECF3">
+            <End Role="Card_payments" EntitySet="Card_payments" />
+            <End Role="Bill" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bills__member_id__628FA481" Association="Restaurant_Web_DataModel.FK__Bills__member_id__628FA481">
+            <End Role="Membership" EntitySet="Memberships" />
+            <End Role="Bill" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bills__reservati__6383C8BA" Association="Restaurant_Web_DataModel.FK__Bills__reservati__6383C8BA">
+            <End Role="Reservation" EntitySet="Reservations" />
+            <End Role="Bill" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bills__staff_id__619B8048" Association="Restaurant_Web_DataModel.FK__Bills__staff_id__619B8048">
+            <End Role="Staff" EntitySet="Staffs" />
+            <End Role="Bill" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Menu__category_i__5CD6CB2B" Association="Restaurant_Web_DataModel.FK__Menu__category_i__5CD6CB2B">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Menu" EntitySet="Menus" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Favorite___item___6C190EBB" Association="Restaurant_Web_DataModel.FK__Favorite___item___6C190EBB">
+            <End Role="Menu" EntitySet="Menus" />
+            <End Role="Favorite_Items" EntitySet="Favorite_Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Favorite___membe__6B24EA82" Association="Restaurant_Web_DataModel.FK__Favorite___membe__6B24EA82">
+            <End Role="Membership" EntitySet="Memberships" />
+            <End Role="Favorite_Items" EntitySet="Favorite_Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Staff__position___534D60F1" Association="Restaurant_Web_DataModel.FK__Staff__position___534D60F1">
+            <End Role="Position" EntitySet="Positions" />
+            <End Role="Staff" EntitySet="Staffs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reservati__table__5812160E" Association="Restaurant_Web_DataModel.FK__Reservati__table__5812160E">
+            <End Role="Table_Res" EntitySet="Table_Res" />
+            <End Role="Reservation" EntitySet="Reservations" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="id" />
@@ -401,10 +469,10 @@
           <Property Name="account1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="role_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="register_date" Type="DateTime" Precision="0" />
+          <Property Name="register_date" Type="DateTime" Precision="3" />
           <Property Name="phone_number" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="role" Relationship="Self.FK__Accounts__role_i__4BAC3F29" FromRole="Accounts" ToRole="role" />
-          <NavigationProperty Name="Memberships" Relationship="Self.FK__Membershi__accou__4E88ABD4" FromRole="Accounts" ToRole="Memberships" />
+          <NavigationProperty Name="role" Relationship="Restaurant_Web_DataModel.FK__Accounts__role_i__4BAC3F29" FromRole="Account" ToRole="role" />
+          <NavigationProperty Name="Memberships" Relationship="Restaurant_Web_DataModel.FK__Membershi__accou__4E88ABD4" FromRole="Account" ToRole="Membership" />
         </EntityType>
         <EntityType Name="Bill_Items">
           <Key>
@@ -414,8 +482,8 @@
           <Property Name="bill_id" Type="Int32" />
           <Property Name="item_id" Type="Int32" />
           <Property Name="quantity" Type="Int32" />
-          <NavigationProperty Name="Bill" Relationship="Self.FK__Bill_Item__bill___6754599E" FromRole="Bill_Items" ToRole="Bills" />
-          <NavigationProperty Name="Menu" Relationship="Self.FK__Bill_Item__item___68487DD7" FromRole="Bill_Items" ToRole="Menu" />
+          <NavigationProperty Name="Bill" Relationship="Restaurant_Web_DataModel.FK__Bill_Item__bill___6754599E" FromRole="Bill_Items" ToRole="Bill" />
+          <NavigationProperty Name="Menu" Relationship="Restaurant_Web_DataModel.FK__Bill_Item__item___68487DD7" FromRole="Bill_Items" ToRole="Menu" />
         </EntityType>
         <EntityType Name="Bill">
           <Key>
@@ -431,30 +499,30 @@
           <Property Name="bill_time" Type="DateTime" Precision="3" />
           <Property Name="payment_time" Type="DateTime" Precision="3" />
           <Property Name="total_amount" Type="Decimal" Precision="10" Scale="2" />
-          <NavigationProperty Name="Bill_Items" Relationship="Self.FK__Bill_Item__bill___6754599E" FromRole="Bills" ToRole="Bill_Items" />
-          <NavigationProperty Name="Card_payments" Relationship="Self.FK__Bills__card_id__6477ECF3" FromRole="Bills" ToRole="Card_payments" />
-          <NavigationProperty Name="Membership" Relationship="Self.FK__Bills__member_id__628FA481" FromRole="Bills" ToRole="Memberships" />
-          <NavigationProperty Name="Reservation" Relationship="Self.FK__Bills__reservati__6383C8BA" FromRole="Bills" ToRole="Reservations" />
-          <NavigationProperty Name="Staff" Relationship="Self.FK__Bills__staff_id__619B8048" FromRole="Bills" ToRole="Staff" />
+          <NavigationProperty Name="Bill_Items" Relationship="Restaurant_Web_DataModel.FK__Bill_Item__bill___6754599E" FromRole="Bill" ToRole="Bill_Items" />
+          <NavigationProperty Name="Card_payments" Relationship="Restaurant_Web_DataModel.FK__Bills__card_id__6477ECF3" FromRole="Bill" ToRole="Card_payments" />
+          <NavigationProperty Name="Membership" Relationship="Restaurant_Web_DataModel.FK__Bills__member_id__628FA481" FromRole="Bill" ToRole="Membership" />
+          <NavigationProperty Name="Reservation" Relationship="Restaurant_Web_DataModel.FK__Bills__reservati__6383C8BA" FromRole="Bill" ToRole="Reservation" />
+          <NavigationProperty Name="Staff" Relationship="Restaurant_Web_DataModel.FK__Bills__staff_id__619B8048" FromRole="Bill" ToRole="Staff" />
         </EntityType>
         <EntityType Name="Card_payments">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="account_holder_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="card_number" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="account_holder_name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="card_number" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
           <Property Name="expiry_date" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="phone_number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Bills" Relationship="Self.FK__Bills__card_id__6477ECF3" FromRole="Card_payments" ToRole="Bills" />
+          <Property Name="phone_number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Bills" Relationship="Restaurant_Web_DataModel.FK__Bills__card_id__6477ECF3" FromRole="Card_payments" ToRole="Bill" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Menus" Relationship="Self.FK__Menu__category_i__5CD6CB2B" FromRole="Category" ToRole="Menu" />
+          <NavigationProperty Name="Menus" Relationship="Restaurant_Web_DataModel.FK__Menu__category_i__5CD6CB2B" FromRole="Category" ToRole="Menu" />
         </EntityType>
         <EntityType Name="Contact">
           <Key>
@@ -483,8 +551,8 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="member_id" Type="Int32" />
           <Property Name="item_id" Type="Int32" />
-          <NavigationProperty Name="Menu" Relationship="Self.FK__Favorite___item___6C190EBB" FromRole="Favorite_Items" ToRole="Menu" />
-          <NavigationProperty Name="Membership" Relationship="Self.FK__Favorite___membe__6B24EA82" FromRole="Favorite_Items" ToRole="Memberships" />
+          <NavigationProperty Name="Menu" Relationship="Restaurant_Web_DataModel.FK__Favorite___item___6C190EBB" FromRole="Favorite_Items" ToRole="Menu" />
+          <NavigationProperty Name="Membership" Relationship="Restaurant_Web_DataModel.FK__Favorite___membe__6B24EA82" FromRole="Favorite_Items" ToRole="Membership" />
         </EntityType>
         <EntityType Name="Membership">
           <Key>
@@ -494,9 +562,9 @@
           <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="points" Type="Int32" />
           <Property Name="account_id" Type="Int32" />
-          <NavigationProperty Name="Account" Relationship="Self.FK__Membershi__accou__4E88ABD4" FromRole="Memberships" ToRole="Accounts" />
-          <NavigationProperty Name="Bills" Relationship="Self.FK__Bills__member_id__628FA481" FromRole="Memberships" ToRole="Bills" />
-          <NavigationProperty Name="Favorite_Items" Relationship="Self.FK__Favorite___membe__6B24EA82" FromRole="Memberships" ToRole="Favorite_Items" />
+          <NavigationProperty Name="Account" Relationship="Restaurant_Web_DataModel.FK__Membershi__accou__4E88ABD4" FromRole="Membership" ToRole="Account" />
+          <NavigationProperty Name="Bills" Relationship="Restaurant_Web_DataModel.FK__Bills__member_id__628FA481" FromRole="Membership" ToRole="Bill" />
+          <NavigationProperty Name="Favorite_Items" Relationship="Restaurant_Web_DataModel.FK__Favorite___membe__6B24EA82" FromRole="Membership" ToRole="Favorite_Items" />
         </EntityType>
         <EntityType Name="Menu">
           <Key>
@@ -508,46 +576,46 @@
           <Property Name="category_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="price" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Bill_Items" Relationship="Self.FK__Bill_Item__item___68487DD7" FromRole="Menu" ToRole="Bill_Items" />
-          <NavigationProperty Name="Category" Relationship="Self.FK__Menu__category_i__5CD6CB2B" FromRole="Menu" ToRole="Category" />
-          <NavigationProperty Name="Favorite_Items" Relationship="Self.FK__Favorite___item___6C190EBB" FromRole="Menu" ToRole="Favorite_Items" />
+          <NavigationProperty Name="Bill_Items" Relationship="Restaurant_Web_DataModel.FK__Bill_Item__item___68487DD7" FromRole="Menu" ToRole="Bill_Items" />
+          <NavigationProperty Name="Category" Relationship="Restaurant_Web_DataModel.FK__Menu__category_i__5CD6CB2B" FromRole="Menu" ToRole="Category" />
+          <NavigationProperty Name="Favorite_Items" Relationship="Restaurant_Web_DataModel.FK__Favorite___item___6C190EBB" FromRole="Menu" ToRole="Favorite_Items" />
         </EntityType>
         <EntityType Name="Position">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Staffs" Relationship="Self.FK__Staff__position___534D60F1" FromRole="Position" ToRole="Staff" />
+          <NavigationProperty Name="Staffs" Relationship="Restaurant_Web_DataModel.FK__Staff__position___534D60F1" FromRole="Position" ToRole="Staff" />
         </EntityType>
         <EntityType Name="Reservation">
           <Key>
             <PropertyRef Name="reservation_id" />
           </Key>
           <Property Name="reservation_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="customer_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="customer_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="phone_number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="table_id" Type="Int32" />
           <Property Name="quantity" Type="Int32" />
           <Property Name="reservation_time" Type="Time" Precision="7" />
           <Property Name="reservation_date" Type="DateTime" Precision="0" />
-          <Property Name="Note" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Bills" Relationship="Self.FK__Bills__reservati__6383C8BA" FromRole="Reservations" ToRole="Bills" />
-          <NavigationProperty Name="Table_Res" Relationship="Self.FK__Reservati__table__5812160E" FromRole="Reservations" ToRole="Table_Res" />
+          <Property Name="Note" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Bills" Relationship="Restaurant_Web_DataModel.FK__Bills__reservati__6383C8BA" FromRole="Reservation" ToRole="Bill" />
+          <NavigationProperty Name="Table_Res" Relationship="Restaurant_Web_DataModel.FK__Reservati__table__5812160E" FromRole="Reservation" ToRole="Table_Res" />
         </EntityType>
         <EntityType Name="role">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Accounts" Relationship="Self.FK__Accounts__role_i__4BAC3F29" FromRole="role" ToRole="Accounts" />
+          <NavigationProperty Name="Accounts" Relationship="Restaurant_Web_DataModel.FK__Accounts__role_i__4BAC3F29" FromRole="role" ToRole="Account" />
         </EntityType>
         <EntityType Name="Staff">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="img" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="position_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -555,8 +623,8 @@
           <Property Name="date_of_birth" Type="DateTime" Precision="0" />
           <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Bills" Relationship="Self.FK__Bills__staff_id__619B8048" FromRole="Staff" ToRole="Bills" />
-          <NavigationProperty Name="Position" Relationship="Self.FK__Staff__position___534D60F1" FromRole="Staff" ToRole="Position" />
+          <NavigationProperty Name="Bills" Relationship="Restaurant_Web_DataModel.FK__Bills__staff_id__619B8048" FromRole="Staff" ToRole="Bill" />
+          <NavigationProperty Name="Position" Relationship="Restaurant_Web_DataModel.FK__Staff__position___534D60F1" FromRole="Staff" ToRole="Position" />
         </EntityType>
         <EntityType Name="Table_Res">
           <Key>
@@ -567,39 +635,39 @@
           <Property Name="location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="quantity" Type="Int32" />
           <Property Name="status" Type="Boolean" />
-          <NavigationProperty Name="Reservations" Relationship="Self.FK__Reservati__table__5812160E" FromRole="Table_Res" ToRole="Reservations" />
+          <NavigationProperty Name="Reservations" Relationship="Restaurant_Web_DataModel.FK__Reservati__table__5812160E" FromRole="Table_Res" ToRole="Reservation" />
         </EntityType>
         <Association Name="FK__Accounts__role_i__4BAC3F29">
-          <End Role="role" Type="Self.role" Multiplicity="0..1" />
-          <End Role="Accounts" Type="Self.Account" Multiplicity="*" />
+          <End Type="Restaurant_Web_DataModel.role" Role="role" Multiplicity="0..1" />
+          <End Type="Restaurant_Web_DataModel.Account" Role="Account" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="role">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Accounts">
+            <Dependent Role="Account">
               <PropertyRef Name="role_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Membershi__accou__4E88ABD4">
-          <End Role="Accounts" Type="Self.Account" Multiplicity="0..1">
+          <End Type="Restaurant_Web_DataModel.Account" Role="Account" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Memberships" Type="Self.Membership" Multiplicity="*" />
+          <End Type="Restaurant_Web_DataModel.Membership" Role="Membership" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Accounts">
+            <Principal Role="Account">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Memberships">
+            <Dependent Role="Membership">
               <PropertyRef Name="account_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Bill_Item__bill___6754599E">
-          <End Role="Bills" Type="Self.Bill" Multiplicity="0..1" />
-          <End Role="Bill_Items" Type="Self.Bill_Items" Multiplicity="*" />
+          <End Type="Restaurant_Web_DataModel.Bill" Role="Bill" Multiplicity="0..1" />
+          <End Type="Restaurant_Web_DataModel.Bill_Items" Role="Bill_Items" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Bills">
+            <Principal Role="Bill">
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="Bill_Items">
@@ -608,8 +676,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Bill_Item__item___68487DD7">
-          <End Role="Menu" Type="Self.Menu" Multiplicity="0..1" />
-          <End Role="Bill_Items" Type="Self.Bill_Items" Multiplicity="*" />
+          <End Type="Restaurant_Web_DataModel.Menu" Role="Menu" Multiplicity="0..1" />
+          <End Type="Restaurant_Web_DataModel.Bill_Items" Role="Bill_Items" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Menu">
               <PropertyRef Name="id" />
@@ -620,56 +688,56 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Bills__card_id__6477ECF3">
-          <End Role="Card_payments" Type="Self.Card_payments" Multiplicity="0..1" />
-          <End Role="Bills" Type="Self.Bill" Multiplicity="*" />
+          <End Type="Restaurant_Web_DataModel.Card_payments" Role="Card_payments" Multiplicity="0..1" />
+          <End Type="Restaurant_Web_DataModel.Bill" Role="Bill" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Card_payments">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Bills">
+            <Dependent Role="Bill">
               <PropertyRef Name="card_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Bills__member_id__628FA481">
-          <End Role="Memberships" Type="Self.Membership" Multiplicity="0..1" />
-          <End Role="Bills" Type="Self.Bill" Multiplicity="*" />
+          <End Type="Restaurant_Web_DataModel.Membership" Role="Membership" Multiplicity="0..1" />
+          <End Type="Restaurant_Web_DataModel.Bill" Role="Bill" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Memberships">
+            <Principal Role="Membership">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Bills">
+            <Dependent Role="Bill">
               <PropertyRef Name="member_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Bills__reservati__6383C8BA">
-          <End Role="Reservations" Type="Self.Reservation" Multiplicity="0..1" />
-          <End Role="Bills" Type="Self.Bill" Multiplicity="*" />
+          <End Type="Restaurant_Web_DataModel.Reservation" Role="Reservation" Multiplicity="0..1" />
+          <End Type="Restaurant_Web_DataModel.Bill" Role="Bill" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Reservations">
+            <Principal Role="Reservation">
               <PropertyRef Name="reservation_id" />
             </Principal>
-            <Dependent Role="Bills">
+            <Dependent Role="Bill">
               <PropertyRef Name="reservation_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Bills__staff_id__619B8048">
-          <End Role="Staff" Type="Self.Staff" Multiplicity="0..1" />
-          <End Role="Bills" Type="Self.Bill" Multiplicity="*" />
+          <End Type="Restaurant_Web_DataModel.Staff" Role="Staff" Multiplicity="0..1" />
+          <End Type="Restaurant_Web_DataModel.Bill" Role="Bill" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Staff">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Bills">
+            <Dependent Role="Bill">
               <PropertyRef Name="staff_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Menu__category_i__5CD6CB2B">
-          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
-          <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
+          <End Type="Restaurant_Web_DataModel.Category" Role="Category" Multiplicity="0..1" />
+          <End Type="Restaurant_Web_DataModel.Menu" Role="Menu" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Category">
               <PropertyRef Name="id" />
@@ -680,10 +748,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Favorite___item___6C190EBB">
-          <End Role="Menu" Type="Self.Menu" Multiplicity="0..1">
+          <End Type="Restaurant_Web_DataModel.Menu" Role="Menu" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Favorite_Items" Type="Self.Favorite_Items" Multiplicity="*" />
+          <End Type="Restaurant_Web_DataModel.Favorite_Items" Role="Favorite_Items" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Menu">
               <PropertyRef Name="id" />
@@ -694,12 +762,12 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Favorite___membe__6B24EA82">
-          <End Role="Memberships" Type="Self.Membership" Multiplicity="0..1">
+          <End Type="Restaurant_Web_DataModel.Membership" Role="Membership" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Favorite_Items" Type="Self.Favorite_Items" Multiplicity="*" />
+          <End Type="Restaurant_Web_DataModel.Favorite_Items" Role="Favorite_Items" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Memberships">
+            <Principal Role="Membership">
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="Favorite_Items">
@@ -708,8 +776,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Staff__position___534D60F1">
-          <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
-          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <End Type="Restaurant_Web_DataModel.Position" Role="Position" Multiplicity="0..1" />
+          <End Type="Restaurant_Web_DataModel.Staff" Role="Staff" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Position">
               <PropertyRef Name="id" />
@@ -720,86 +788,17 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Reservati__table__5812160E">
-          <End Role="Table_Res" Type="Self.Table_Res" Multiplicity="0..1" />
-          <End Role="Reservations" Type="Self.Reservation" Multiplicity="*" />
+          <End Type="Restaurant_Web_DataModel.Table_Res" Role="Table_Res" Multiplicity="0..1" />
+          <End Type="Restaurant_Web_DataModel.Reservation" Role="Reservation" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Table_Res">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Reservations">
+            <Dependent Role="Reservation">
               <PropertyRef Name="table_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Restaurant_Web_DataEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Accounts" EntityType="Self.Account" />
-          <EntitySet Name="Bill_Items" EntityType="Self.Bill_Items" />
-          <EntitySet Name="Bills" EntityType="Self.Bill" />
-          <EntitySet Name="Card_payments" EntityType="Self.Card_payments" />
-          <EntitySet Name="Categories" EntityType="Self.Category" />
-          <EntitySet Name="Contacts" EntityType="Self.Contact" />
-          <EntitySet Name="Deals" EntityType="Self.Deal" />
-          <EntitySet Name="Favorite_Items" EntityType="Self.Favorite_Items" />
-          <EntitySet Name="Memberships" EntityType="Self.Membership" />
-          <EntitySet Name="Menus" EntityType="Self.Menu" />
-          <EntitySet Name="Positions" EntityType="Self.Position" />
-          <EntitySet Name="Reservations" EntityType="Self.Reservation" />
-          <EntitySet Name="roles" EntityType="Self.role" />
-          <EntitySet Name="Staffs" EntityType="Self.Staff" />
-          <EntitySet Name="Table_Res" EntityType="Self.Table_Res" />
-          <AssociationSet Name="FK__Accounts__role_i__4BAC3F29" Association="Self.FK__Accounts__role_i__4BAC3F29">
-            <End Role="role" EntitySet="roles" />
-            <End Role="Accounts" EntitySet="Accounts" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Membershi__accou__4E88ABD4" Association="Self.FK__Membershi__accou__4E88ABD4">
-            <End Role="Accounts" EntitySet="Accounts" />
-            <End Role="Memberships" EntitySet="Memberships" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Bill_Item__bill___6754599E" Association="Self.FK__Bill_Item__bill___6754599E">
-            <End Role="Bills" EntitySet="Bills" />
-            <End Role="Bill_Items" EntitySet="Bill_Items" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Bill_Item__item___68487DD7" Association="Self.FK__Bill_Item__item___68487DD7">
-            <End Role="Menu" EntitySet="Menus" />
-            <End Role="Bill_Items" EntitySet="Bill_Items" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Bills__card_id__6477ECF3" Association="Self.FK__Bills__card_id__6477ECF3">
-            <End Role="Card_payments" EntitySet="Card_payments" />
-            <End Role="Bills" EntitySet="Bills" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Bills__member_id__628FA481" Association="Self.FK__Bills__member_id__628FA481">
-            <End Role="Memberships" EntitySet="Memberships" />
-            <End Role="Bills" EntitySet="Bills" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Bills__reservati__6383C8BA" Association="Self.FK__Bills__reservati__6383C8BA">
-            <End Role="Reservations" EntitySet="Reservations" />
-            <End Role="Bills" EntitySet="Bills" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Bills__staff_id__619B8048" Association="Self.FK__Bills__staff_id__619B8048">
-            <End Role="Staff" EntitySet="Staffs" />
-            <End Role="Bills" EntitySet="Bills" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Menu__category_i__5CD6CB2B" Association="Self.FK__Menu__category_i__5CD6CB2B">
-            <End Role="Category" EntitySet="Categories" />
-            <End Role="Menu" EntitySet="Menus" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Favorite___item___6C190EBB" Association="Self.FK__Favorite___item___6C190EBB">
-            <End Role="Menu" EntitySet="Menus" />
-            <End Role="Favorite_Items" EntitySet="Favorite_Items" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Favorite___membe__6B24EA82" Association="Self.FK__Favorite___membe__6B24EA82">
-            <End Role="Memberships" EntitySet="Memberships" />
-            <End Role="Favorite_Items" EntitySet="Favorite_Items" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Staff__position___534D60F1" Association="Self.FK__Staff__position___534D60F1">
-            <End Role="Position" EntitySet="Positions" />
-            <End Role="Staff" EntitySet="Staffs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Reservati__table__5812160E" Association="Self.FK__Reservati__table__5812160E">
-            <End Role="Table_Res" EntitySet="Table_Res" />
-            <End Role="Reservations" EntitySet="Reservations" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -809,166 +808,166 @@
           <EntitySetMapping Name="Accounts">
             <EntityTypeMapping TypeName="Restaurant_Web_DataModel.Account">
               <MappingFragment StoreEntitySet="Accounts">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="img" ColumnName="img" />
-                <ScalarProperty Name="account1" ColumnName="account" />
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="role_id" ColumnName="role_id" />
-                <ScalarProperty Name="register_date" ColumnName="register_date" />
                 <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="register_date" ColumnName="register_date" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="account1" ColumnName="account" />
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Bill_Items">
             <EntityTypeMapping TypeName="Restaurant_Web_DataModel.Bill_Items">
               <MappingFragment StoreEntitySet="Bill_Items">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="bill_id" ColumnName="bill_id" />
-                <ScalarProperty Name="item_id" ColumnName="item_id" />
                 <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="item_id" ColumnName="item_id" />
+                <ScalarProperty Name="bill_id" ColumnName="bill_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Bills">
             <EntityTypeMapping TypeName="Restaurant_Web_DataModel.Bill">
               <MappingFragment StoreEntitySet="Bills">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="staff_id" ColumnName="staff_id" />
-                <ScalarProperty Name="member_id" ColumnName="member_id" />
-                <ScalarProperty Name="reservation_id" ColumnName="reservation_id" />
-                <ScalarProperty Name="table_id" ColumnName="table_id" />
-                <ScalarProperty Name="card_id" ColumnName="card_id" />
-                <ScalarProperty Name="payment_method" ColumnName="payment_method" />
-                <ScalarProperty Name="bill_time" ColumnName="bill_time" />
-                <ScalarProperty Name="payment_time" ColumnName="payment_time" />
                 <ScalarProperty Name="total_amount" ColumnName="total_amount" />
+                <ScalarProperty Name="payment_time" ColumnName="payment_time" />
+                <ScalarProperty Name="bill_time" ColumnName="bill_time" />
+                <ScalarProperty Name="payment_method" ColumnName="payment_method" />
+                <ScalarProperty Name="card_id" ColumnName="card_id" />
+                <ScalarProperty Name="table_id" ColumnName="table_id" />
+                <ScalarProperty Name="reservation_id" ColumnName="reservation_id" />
+                <ScalarProperty Name="member_id" ColumnName="member_id" />
+                <ScalarProperty Name="staff_id" ColumnName="staff_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Card_payments">
             <EntityTypeMapping TypeName="Restaurant_Web_DataModel.Card_payments">
               <MappingFragment StoreEntitySet="Card_payments">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="account_holder_name" ColumnName="account_holder_name" />
-                <ScalarProperty Name="card_number" ColumnName="card_number" />
-                <ScalarProperty Name="expiry_date" ColumnName="expiry_date" />
                 <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="expiry_date" ColumnName="expiry_date" />
+                <ScalarProperty Name="card_number" ColumnName="card_number" />
+                <ScalarProperty Name="account_holder_name" ColumnName="account_holder_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Categories">
             <EntityTypeMapping TypeName="Restaurant_Web_DataModel.Category">
               <MappingFragment StoreEntitySet="Category">
-                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Contacts">
             <EntityTypeMapping TypeName="Restaurant_Web_DataModel.Contact">
               <MappingFragment StoreEntitySet="Contact">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
-                <ScalarProperty Name="Note" ColumnName="Note" />
                 <ScalarProperty Name="request_date" ColumnName="request_date" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Deals">
             <EntityTypeMapping TypeName="Restaurant_Web_DataModel.Deal">
               <MappingFragment StoreEntitySet="Deals">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="img" ColumnName="img" />
                 <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Favorite_Items">
             <EntityTypeMapping TypeName="Restaurant_Web_DataModel.Favorite_Items">
               <MappingFragment StoreEntitySet="Favorite_Items">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="member_id" ColumnName="member_id" />
                 <ScalarProperty Name="item_id" ColumnName="item_id" />
+                <ScalarProperty Name="member_id" ColumnName="member_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Memberships">
             <EntityTypeMapping TypeName="Restaurant_Web_DataModel.Membership">
               <MappingFragment StoreEntitySet="Memberships">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="points" ColumnName="points" />
                 <ScalarProperty Name="account_id" ColumnName="account_id" />
+                <ScalarProperty Name="points" ColumnName="points" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Menus">
             <EntityTypeMapping TypeName="Restaurant_Web_DataModel.Menu">
               <MappingFragment StoreEntitySet="Menu">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="img" ColumnName="img" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="category_id" ColumnName="category_id" />
-                <ScalarProperty Name="price" ColumnName="price" />
                 <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Positions">
             <EntityTypeMapping TypeName="Restaurant_Web_DataModel.Position">
               <MappingFragment StoreEntitySet="Position">
-                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Reservations">
             <EntityTypeMapping TypeName="Restaurant_Web_DataModel.Reservation">
               <MappingFragment StoreEntitySet="Reservations">
-                <ScalarProperty Name="reservation_id" ColumnName="reservation_id" />
-                <ScalarProperty Name="customer_name" ColumnName="customer_name" />
-                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
-                <ScalarProperty Name="table_id" ColumnName="table_id" />
-                <ScalarProperty Name="quantity" ColumnName="quantity" />
-                <ScalarProperty Name="reservation_time" ColumnName="reservation_time" />
-                <ScalarProperty Name="reservation_date" ColumnName="reservation_date" />
                 <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="reservation_date" ColumnName="reservation_date" />
+                <ScalarProperty Name="reservation_time" ColumnName="reservation_time" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="table_id" ColumnName="table_id" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="customer_name" ColumnName="customer_name" />
+                <ScalarProperty Name="reservation_id" ColumnName="reservation_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="roles">
             <EntityTypeMapping TypeName="Restaurant_Web_DataModel.role">
               <MappingFragment StoreEntitySet="role">
-                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Staffs">
             <EntityTypeMapping TypeName="Restaurant_Web_DataModel.Staff">
               <MappingFragment StoreEntitySet="Staff">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="img" ColumnName="img" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="position_id" ColumnName="position_id" />
-                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
-                <ScalarProperty Name="date_of_birth" ColumnName="date_of_birth" />
-                <ScalarProperty Name="address" ColumnName="address" />
                 <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="date_of_birth" ColumnName="date_of_birth" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="position_id" ColumnName="position_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Table_Res">
             <EntityTypeMapping TypeName="Restaurant_Web_DataModel.Table_Res">
               <MappingFragment StoreEntitySet="Table_Res">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="location" ColumnName="location" />
-                <ScalarProperty Name="quantity" ColumnName="quantity" />
                 <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

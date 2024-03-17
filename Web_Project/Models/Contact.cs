@@ -19,8 +19,8 @@ namespace Web_Project.Models
         [DisplayName("Mã liên hệ")]
         [Required(ErrorMessage = "Vui lòng nhập mã liên hệ.")]
         public int id { get; set; }
-        [DisplayName("Họ và tên")]
-        [Required(ErrorMessage = "Vui lòng nhập tên người liên hệ.")]
+        [DisplayName("Tên khách hàng")]
+        [Required(ErrorMessage = "Vui lòng nhập tên khách hàng.")]
         public string name { get; set; }
         [DisplayName("Email")]
         [Required(ErrorMessage = "Vui lòng nhập email.")]
@@ -30,8 +30,8 @@ namespace Web_Project.Models
         public string phone_number { get; set; }
         [DisplayName("Ghi chú")]
         public string Note { get; set; }
-        [DisplayName("Ngày tạo")]
-        [Required(ErrorMessage = "Vui lòng ngày tạo.")]
+        [DisplayName("Ngày tạo liên hệ")]
+        [Required(ErrorMessage = "Vuis lòng nhập ngày tạo.")]
         public Nullable<System.DateTime> request_date { get; set; }
     }
 }

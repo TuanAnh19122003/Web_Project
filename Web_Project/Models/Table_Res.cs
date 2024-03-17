@@ -28,7 +28,7 @@ namespace Web_Project.Models
         [Required(ErrorMessage = "Vui lòng nhập tên bàn.")]
         public string name { get; set; }
         [DisplayName("Vị trí")]
-        [Required(ErrorMessage = "Vui lòng nhập vị trí bàn")]
+        [Required(ErrorMessage = "Vui lòng nhập vị trí.")]
         public string location { get; set; }
         [DisplayName("Số lượng")]
         [Required(ErrorMessage = "Vui lòng nhập số lượng.")]
