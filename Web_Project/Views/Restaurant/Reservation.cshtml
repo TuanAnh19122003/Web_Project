@@ -39,6 +39,12 @@
     .form-group .form-control.dropdown-custom {
         height: 50px;
     }
+    .custom-title {
+        font-size: 28px; /* Đặt kích thước chữ */
+        color: #333; /* Đặt màu sắc */
+        font-weight: bold; /* Đặt độ đậm */
+    }
+
 </style>
 <body>
     <section class="home-slider-loop-false  inner-page owl-carousel">
@@ -46,7 +52,7 @@
             <div class="container">
                 <div class="row slider-text align-items-center justify-content-center">
                     <div class="col-md-8 text-center col-sm-12 element-animate">
-                        <h1>Deal</h1>
+                        <h1>Reservation</h1>
                     </div>
                 </div>
             </div>
@@ -58,7 +64,9 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="reservation-form-wrap mb-5">
-                        <h2 class="section-title mb-4">Đặt Bàn</h2>
+                        <h2 class="section-title mb-4" style=" text-align: center; color: #333; font-weight: bold;padding-top:5 0px ">
+                            Đặt Bàn
+                        </h2>
                         @using (Html.BeginForm("Reservation", "Restaurant", FormMethod.Post, new { @class = "reservation-form", id = "reservationForm" }))
                         {
                             @Html.AntiForgeryToken()
@@ -120,13 +128,4 @@
             </div>
         </div>
     </section>
-
-    <script src="~/Theme/js/jquery-3.2.1.min.js"></script>
-    <script src="~/Theme/js/popper.min.js"></script>
-    <script src="~/Theme/js/bootstrap.min.js"></script>
-    <script src="~/Theme/js/owl.carousel.min.js"></script>
-    <script src="~/Theme/js/jquery.waypoints.min.js"></script>
-    <script src="~/Theme/js/jquery.magnific-popup.min.js"></script>
-    <script src="~/Theme/js/magnific-popup-options.js"></script>
-    <script src="~/Theme/js/main.js"></script>
 </body>
