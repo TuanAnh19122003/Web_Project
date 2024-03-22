@@ -35,7 +35,7 @@ namespace Web_Project.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            return View();
+            return View(bill);
         }
 
         // GET: Admin/Bill/Create
@@ -110,7 +110,7 @@ namespace Web_Project.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            return View();
+            return View(bill);
         }
 
         // POST: Admin/Bill/Delete/5
