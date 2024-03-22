@@ -28,7 +28,6 @@ namespace Web_Project.Models
         public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<Bill_Items> Bill_Items { get; set; }
         public virtual DbSet<Bill> Bills { get; set; }
-        public virtual DbSet<Card_payments> Card_payments { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<Deal> Deals { get; set; }

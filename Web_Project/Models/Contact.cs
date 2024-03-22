@@ -30,8 +30,7 @@ namespace Web_Project.Models
         public string phone_number { get; set; }
         [DisplayName("Ghi chú")]
         public string Note { get; set; }
-        [DisplayName("Ngày tạo liên hệ")]
-        [Required(ErrorMessage = "Vuis lòng nhập ngày tạo.")]
+        [DisplayName("Ngày gửi liên hệ")]
         public Nullable<System.DateTime> request_date { get; set; }
     }
 }

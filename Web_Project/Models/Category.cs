@@ -21,8 +21,8 @@ namespace Web_Project.Models
         {
             this.Menus = new HashSet<Menu>();
         }
-        [DisplayName("Mã loại")]
-        [Required(ErrorMessage = "Vui lòng nhập mã loại.")]
+        [DisplayName("Mã loại món")]
+        [Required(ErrorMessage = "Vui lòng nhập mã loại món.")]
         public string id { get; set; }
         [DisplayName("Tên loại")]
         [Required(ErrorMessage = "Vui lòng nhập tên loại.")]

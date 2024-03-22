@@ -25,17 +25,17 @@ namespace Web_Project.Models
         [DisplayName("Mã món")]
         [Required(ErrorMessage = "Vui lòng nhập mã món.")]
         public int id { get; set; }
-        [DisplayName("Ảnh món")]
-        [Required(ErrorMessage = "Vui lòng chọn ảnh món.")]
+        [DisplayName("Ảnh minh họa")]
+        [Required(ErrorMessage = "Vui lòng chọn ảnh.")]
         public string img { get; set; }
         [DisplayName("Tên món")]
         [Required(ErrorMessage = "Vui lòng nhập tên món.")]
         public string name { get; set; }
         [DisplayName("Loại món")]
-        [Required(ErrorMessage = "Vui lòng nhập mã loại món.")]
+        [Required(ErrorMessage = "Vui lòng nhập loại món.")]
         public string category_id { get; set; }
-        [DisplayName("Giá món")]
-        [Required(ErrorMessage = "Vui lòng nhập giá món.")]
+        [DisplayName("Đơn giá")]
+        [Required(ErrorMessage = "Vui lòng nhập đơn giá.")]
         public Nullable<decimal> price { get; set; }
         [DisplayName("Mô tả")]
         [Required(ErrorMessage = "Vui lòng nhập mô tả.")]

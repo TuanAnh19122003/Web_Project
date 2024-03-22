@@ -1,0 +1,64 @@
+﻿@model PagedList.IPagedList<Web_Project.Models.Favorite_Items>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="~/Theme/css/pagination.css" rel="stylesheet" />
+</head>
+<div class="content-wrapper">
+    <section class="content" style="padding-top:30px">
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-6 text-end text-danger text-uppercase">
+                        Danh sách yêu thích
+                    </div>
+                    <div class="col-6 text-right">
+                        <a href="@Url.Action("Create","Favorite_Items")" class="btn btn-success"><i class="fas fa-plus"></i> Thêm</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>
+                            Thành viên
+                        </th>
+                        <th>
+                            Món yêu thích
+                        </th>
+                        <th>
+                            Chức năng
+                        </th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.member_id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.item_id)
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Edit", new { id = item.id })" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="@Url.Action("Details", new { id = item.id })" class="btn btn-info"><i class="far fa-eye"></i></a>
+                                <a href="@Url.Action("Delete", new { id = item.id })" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+                <div class="pagination">
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

@@ -47,16 +47,22 @@ namespace Web_Project.Controllers
         }
         public ActionResult Reservation([Bind(Include = "reservation_id,customer_name,phone_number,table_id,quantity,reservation_time,reservation_date,Note")] Reservation res)
         {
-            if (ModelState.IsValid)
+            if (Session["user"] == null)
             {
-                db.Reservations.Add(res);
-                db.SaveChanges();
-                return RedirectToAction("Reservation");
+                return RedirectToAction("Login");
             }
-            ModelState.Clear();
-            ViewBag.table_id = new SelectList(db.Table_Res, "id", "name");
-            return View(res);
+            else
+            {
+                if (ModelState.IsValid)
+                {
+                    db.Reservations.Add(res);
+                    db.SaveChanges();
+                    return RedirectToAction("Reservation");
+                }
+                ModelState.Clear();
+                ViewBag.table_id = new SelectList(db.Table_Res, "id", "name");
+                return View(res);
+            }
         }
-
     }
 }

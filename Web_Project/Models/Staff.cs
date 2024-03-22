@@ -25,13 +25,13 @@ namespace Web_Project.Models
         [Required(ErrorMessage = "Vui lòng nhập mã nhân viên.")]
         public string id { get; set; }
         [DisplayName("Ảnh nhân viên")]
-        [Required(ErrorMessage = "Vui lòng nhập ảnh nhân viên.")]
+        [Required(ErrorMessage = "Vui lòng chọn ảnh nhân viên.")]
         public string img { get; set; }
         [DisplayName("Tên nhân viên")]
         [Required(ErrorMessage = "Vui lòng nhập tên nhân viên.")]
         public string name { get; set; }
         [DisplayName("Chức vụ")]
-        [Required(ErrorMessage = "Vui lòng nhập mã chức vụ.")]
+        [Required(ErrorMessage = "Vui lòng chọn chức vụ.")]
         public string position_id { get; set; }
         [DisplayName("Số điện thoại")]
         [Required(ErrorMessage = "Vui lòng nhập số điện thoại.")]

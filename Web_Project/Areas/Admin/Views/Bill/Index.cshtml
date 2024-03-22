@@ -1,4 +1,4 @@
-﻿@model PagedList.IPagedList<Web_Project.Models.Reservation>
+﻿@model PagedList.IPagedList<Web_Project.Models.Bill>
 @using PagedList.Mvc;
 
 @{
@@ -16,10 +16,10 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-6 text-end text-danger text-uppercase">
-                        Danh sách đặt bàn
+                        Danh sách hóa đơn
                     </div>
                     <div class="col-6 text-right">
-                        <a href="@Url.Action("Create","Reservation")" class="btn btn-success"><i class="fas fa-plus"></i> Thêm</a>
+                        <a href="@Url.Action("Create","Bill")" class="btn btn-success"><i class="fas fa-plus"></i> Thêm</a>
                     </div>
                 </div>
             </div>
@@ -27,28 +27,25 @@
                 <table class="table table-bordered table-striped">
                     <tr>
                         <th>
-                            @Html.DisplayNameFor(model => model.First().reservation_id)
+                            Nhân viên thanh toán
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.First().customer_name)
+                            Thành viên
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.First().phone_number)
+                            Đặt bàn
                         </th>
                         <th>
                             Bàn
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.First().quantity)
+                            @Html.DisplayNameFor(model => model.First().payment_method)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.First().reservation_time)
+                            @Html.DisplayNameFor(model => model.First().bill_time)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.First().reservation_date)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.First().Note)
+                            @Html.DisplayNameFor(model => model.First().total_amount)
                         </th>
                         <th>
                             Chức năng
@@ -59,33 +56,30 @@
                     {
                         <tr>
                             <td>
+                                @Html.DisplayFor(modelItem => item.staff_id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.member_id)
+                            </td>
+                            <td>
                                 @Html.DisplayFor(modelItem => item.reservation_id)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.customer_name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.phone_number)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.table_id)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.quantity)
+                                @Html.DisplayFor(modelItem => item.payment_method)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.reservation_time)
+                                @Html.DisplayFor(modelItem => item.bill_time)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.reservation_date)
+                                @Html.DisplayFor(modelItem => item.total_amount)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Note)
-                            </td>
-                            <td>
-                                <a href="@Url.Action("Edit", new { id = item.reservation_id })" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                                <a href="@Url.Action("Details", new { id = item.reservation_id })" class="btn btn-info"><i class="far fa-eye"></i></a>
-                                <a href="@Url.Action("Delete", new { id = item.reservation_id })" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                <a href="@Url.Action("Edit", new { id = item.id })" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="@Url.Action("Details", new { id = item.id })" class="btn btn-info"><i class="far fa-eye"></i></a>
+                                <a href="@Url.Action("Delete", new { id = item.id })" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                             </td>
                         </tr>
                     }

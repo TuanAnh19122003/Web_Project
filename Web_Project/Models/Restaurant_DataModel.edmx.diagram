@@ -5,26 +5,24 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="07127f9bb8c044f7b8058b18555b25e2" Name="Diagram1" ZoomLevel="86">
-        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Account" Width="1.5" PointX="3" PointY="4.875" />
-        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Bill_Items" Width="1.5" PointX="9.75" PointY="2.125" />
-        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Bill" Width="1.5" PointX="7.5" PointY="4.25" />
-        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Card_payments" Width="1.5" PointX="5.25" PointY="9.125" />
-        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Category" Width="1.5" PointX="5.25" PointY="2.5" />
-        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Contact" Width="1.5" PointX="0.75" PointY="8.5" />
-        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Deal" Width="1.5" PointX="7.75" PointY="9.5" />
-        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Favorite_Items" Width="1.5" PointX="10.5" PointY="5.25" />
-        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Membership" Width="1.5" PointX="5.25" PointY="5.125" />
-        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Menu" Width="1.5" PointX="7.5" PointY="0.75" />
-        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Position" Width="1.5" PointX="3" PointY="12.75" />
-        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Reservation" Width="1.5" PointX="5.25" PointY="15.75" />
-        <EntityTypeShape EntityType="Restaurant_Web_DataModel.role" Width="1.5" PointX="0.75" PointY="5.5" />
-        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Staff" Width="1.5" PointX="5.25" PointY="12.125" />
-        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Table_Res" Width="1.5" PointX="3" PointY="16.125" />
+        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Account" Width="1.5" PointX="3" PointY="4.75" />
+        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Bill_Items" Width="1.5" PointX="9.75" PointY="2" />
+        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Bill" Width="1.5" PointX="7.5" PointY="4.375" />
+        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Category" Width="1.5" PointX="5.25" PointY="13.125" />
+        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Contact" Width="1.5" PointX="7.75" PointY="8.625" />
+        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Deal" Width="1.5" PointX="0.75" PointY="11.625" />
+        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Favorite_Items" Width="1.5" PointX="10.5" PointY="5.125" />
+        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Membership" Width="1.5" PointX="5.25" PointY="4.875" />
+        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Menu" Width="1.5" PointX="7.5" PointY="12.625" />
+        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Position" Width="1.5" PointX="3" PointY="9.125" />
+        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Reservation" Width="1.5" PointX="5.25" PointY="0.75" />
+        <EntityTypeShape EntityType="Restaurant_Web_DataModel.role" Width="1.5" PointX="0.75" PointY="5.25" />
+        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Staff" Width="1.5" PointX="5.25" PointY="8.5" />
+        <EntityTypeShape EntityType="Restaurant_Web_DataModel.Table_Res" Width="1.5" PointX="3" PointY="1.125" />
         <AssociationConnector Association="Restaurant_Web_DataModel.FK__Accounts__role_i__4BAC3F29" />
         <AssociationConnector Association="Restaurant_Web_DataModel.FK__Membershi__accou__4E88ABD4" />
         <AssociationConnector Association="Restaurant_Web_DataModel.FK__Bill_Item__bill___6754599E" />
         <AssociationConnector Association="Restaurant_Web_DataModel.FK__Bill_Item__item___68487DD7" />
-        <AssociationConnector Association="Restaurant_Web_DataModel.FK__Bills__card_id__6477ECF3" />
         <AssociationConnector Association="Restaurant_Web_DataModel.FK__Bills__member_id__628FA481" />
         <AssociationConnector Association="Restaurant_Web_DataModel.FK__Bills__reservati__6383C8BA" />
         <AssociationConnector Association="Restaurant_Web_DataModel.FK__Bills__staff_id__619B8048" />

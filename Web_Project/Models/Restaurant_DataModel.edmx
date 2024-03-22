@@ -35,21 +35,9 @@
           <Property Name="member_id" Type="int" />
           <Property Name="reservation_id" Type="int" />
           <Property Name="table_id" Type="int" />
-          <Property Name="card_id" Type="int" />
           <Property Name="payment_method" Type="varchar" MaxLength="255" />
           <Property Name="bill_time" Type="datetime" />
-          <Property Name="payment_time" Type="datetime" />
           <Property Name="total_amount" Type="decimal" Precision="10" Scale="2" />
-        </EntityType>
-        <EntityType Name="Card_payments">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="account_holder_name" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="card_number" Type="varchar" MaxLength="16" Nullable="false" />
-          <Property Name="expiry_date" Type="date" Nullable="false" />
-          <Property Name="phone_number" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
@@ -192,18 +180,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Bills__card_id__6477ECF3">
-          <End Role="Card_payments" Type="Self.Card_payments" Multiplicity="0..1" />
-          <End Role="Bills" Type="Self.Bills" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Card_payments">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Bills">
-              <PropertyRef Name="card_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Bills__member_id__628FA481">
           <End Role="Memberships" Type="Self.Memberships" Multiplicity="0..1" />
           <End Role="Bills" Type="Self.Bills" Multiplicity="*" />
@@ -322,7 +298,6 @@
           <EntitySet Name="Accounts" EntityType="Self.Accounts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Bill_Items" EntityType="Self.Bill_Items" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Bills" EntityType="Self.Bills" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Card_payments" EntityType="Self.Card_payments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Deals" EntityType="Self.Deals" Schema="dbo" store:Type="Tables" />
@@ -345,10 +320,6 @@
           <AssociationSet Name="FK__Bill_Item__item___68487DD7" Association="Self.FK__Bill_Item__item___68487DD7">
             <End Role="Menu" EntitySet="Menu" />
             <End Role="Bill_Items" EntitySet="Bill_Items" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Bills__card_id__6477ECF3" Association="Self.FK__Bills__card_id__6477ECF3">
-            <End Role="Card_payments" EntitySet="Card_payments" />
-            <End Role="Bills" EntitySet="Bills" />
           </AssociationSet>
           <AssociationSet Name="FK__Bills__member_id__628FA481" Association="Self.FK__Bills__member_id__628FA481">
             <End Role="Memberships" EntitySet="Memberships" />
@@ -395,7 +366,6 @@
           <EntitySet Name="Accounts" EntityType="Restaurant_Web_DataModel.Account" />
           <EntitySet Name="Bill_Items" EntityType="Restaurant_Web_DataModel.Bill_Items" />
           <EntitySet Name="Bills" EntityType="Restaurant_Web_DataModel.Bill" />
-          <EntitySet Name="Card_payments" EntityType="Restaurant_Web_DataModel.Card_payments" />
           <EntitySet Name="Categories" EntityType="Restaurant_Web_DataModel.Category" />
           <EntitySet Name="Contacts" EntityType="Restaurant_Web_DataModel.Contact" />
           <EntitySet Name="Deals" EntityType="Restaurant_Web_DataModel.Deal" />
@@ -422,10 +392,6 @@
           <AssociationSet Name="FK__Bill_Item__item___68487DD7" Association="Restaurant_Web_DataModel.FK__Bill_Item__item___68487DD7">
             <End Role="Menu" EntitySet="Menus" />
             <End Role="Bill_Items" EntitySet="Bill_Items" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Bills__card_id__6477ECF3" Association="Restaurant_Web_DataModel.FK__Bills__card_id__6477ECF3">
-            <End Role="Card_payments" EntitySet="Card_payments" />
-            <End Role="Bill" EntitySet="Bills" />
           </AssociationSet>
           <AssociationSet Name="FK__Bills__member_id__628FA481" Association="Restaurant_Web_DataModel.FK__Bills__member_id__628FA481">
             <End Role="Membership" EntitySet="Memberships" />
@@ -494,27 +460,13 @@
           <Property Name="member_id" Type="Int32" />
           <Property Name="reservation_id" Type="Int32" />
           <Property Name="table_id" Type="Int32" />
-          <Property Name="card_id" Type="Int32" />
           <Property Name="payment_method" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="bill_time" Type="DateTime" Precision="3" />
-          <Property Name="payment_time" Type="DateTime" Precision="3" />
           <Property Name="total_amount" Type="Decimal" Precision="10" Scale="2" />
           <NavigationProperty Name="Bill_Items" Relationship="Restaurant_Web_DataModel.FK__Bill_Item__bill___6754599E" FromRole="Bill" ToRole="Bill_Items" />
-          <NavigationProperty Name="Card_payments" Relationship="Restaurant_Web_DataModel.FK__Bills__card_id__6477ECF3" FromRole="Bill" ToRole="Card_payments" />
           <NavigationProperty Name="Membership" Relationship="Restaurant_Web_DataModel.FK__Bills__member_id__628FA481" FromRole="Bill" ToRole="Membership" />
           <NavigationProperty Name="Reservation" Relationship="Restaurant_Web_DataModel.FK__Bills__reservati__6383C8BA" FromRole="Bill" ToRole="Reservation" />
           <NavigationProperty Name="Staff" Relationship="Restaurant_Web_DataModel.FK__Bills__staff_id__619B8048" FromRole="Bill" ToRole="Staff" />
-        </EntityType>
-        <EntityType Name="Card_payments">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="account_holder_name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="card_number" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
-          <Property Name="expiry_date" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="phone_number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Bills" Relationship="Restaurant_Web_DataModel.FK__Bills__card_id__6477ECF3" FromRole="Card_payments" ToRole="Bill" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
@@ -687,18 +639,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Bills__card_id__6477ECF3">
-          <End Type="Restaurant_Web_DataModel.Card_payments" Role="Card_payments" Multiplicity="0..1" />
-          <End Type="Restaurant_Web_DataModel.Bill" Role="Bill" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Card_payments">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Bill">
-              <PropertyRef Name="card_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Bills__member_id__628FA481">
           <End Type="Restaurant_Web_DataModel.Membership" Role="Membership" Multiplicity="0..1" />
           <End Type="Restaurant_Web_DataModel.Bill" Role="Bill" Multiplicity="*" />
@@ -799,7 +739,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -832,25 +772,12 @@
             <EntityTypeMapping TypeName="Restaurant_Web_DataModel.Bill">
               <MappingFragment StoreEntitySet="Bills">
                 <ScalarProperty Name="total_amount" ColumnName="total_amount" />
-                <ScalarProperty Name="payment_time" ColumnName="payment_time" />
                 <ScalarProperty Name="bill_time" ColumnName="bill_time" />
                 <ScalarProperty Name="payment_method" ColumnName="payment_method" />
-                <ScalarProperty Name="card_id" ColumnName="card_id" />
                 <ScalarProperty Name="table_id" ColumnName="table_id" />
                 <ScalarProperty Name="reservation_id" ColumnName="reservation_id" />
                 <ScalarProperty Name="member_id" ColumnName="member_id" />
                 <ScalarProperty Name="staff_id" ColumnName="staff_id" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Card_payments">
-            <EntityTypeMapping TypeName="Restaurant_Web_DataModel.Card_payments">
-              <MappingFragment StoreEntitySet="Card_payments">
-                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
-                <ScalarProperty Name="expiry_date" ColumnName="expiry_date" />
-                <ScalarProperty Name="card_number" ColumnName="card_number" />
-                <ScalarProperty Name="account_holder_name" ColumnName="account_holder_name" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

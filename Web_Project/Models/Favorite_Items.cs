@@ -22,10 +22,9 @@ namespace Web_Project.Models
         [DisplayName("Mã thành viên")]
         [Required(ErrorMessage = "Vui lòng nhập mã thành viên.")]
         public Nullable<int> member_id { get; set; }
-        [DisplayName("Món")]
-        [Required(ErrorMessage = "Vui lòng nhập mã món.")]
+        [DisplayName("Mã món")]
         public Nullable<int> item_id { get; set; }
-        
+    
         public virtual Menu Menu { get; set; }
         public virtual Membership Membership { get; set; }
     }

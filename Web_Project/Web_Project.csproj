@@ -137,10 +137,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BillController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContactController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Admin\Controllers\DealController.cs" />
+    <Compile Include="Areas\Admin\Controllers\Favorite_ItemsController.cs" />
     <Compile Include="Areas\Admin\Controllers\MembershipController.cs" />
     <Compile Include="Areas\Admin\Controllers\MenuController.cs" />
     <Compile Include="Areas\Admin\Controllers\PositionController.cs" />
@@ -160,9 +162,6 @@
       <DependentUpon>Restaurant_DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Bill_Items.cs">
-      <DependentUpon>Restaurant_DataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Card_payments.cs">
       <DependentUpon>Restaurant_DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Category.cs">
@@ -319,6 +318,16 @@
     <Content Include="Areas\Admin\Views\Reservation\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Reservation\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Reservation\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Favorite_Items\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Favorite_Items\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Favorite_Items\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Favorite_Items\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Favorite_Items\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Bill\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Bill\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Bill\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Bill\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Bill\Details.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

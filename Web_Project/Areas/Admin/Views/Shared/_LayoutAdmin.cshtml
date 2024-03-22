@@ -283,7 +283,7 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="@Url.Action("Index","Favorite_Items")" class="nav-link">
                                         <i class="fas fa-heart nav-icon"></i>
                                         <p>Danh sách yêu thích</p>
                                     </a>
@@ -313,11 +313,29 @@
                                         <p>Danh sách đặt bàn</p>
                                     </a>
                                 </li>
-                                
+
                             </ul>
                         </li>
-                       
-                        
+
+                        @* Quản lý hóa đơn *@
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-money-bill"></i>
+                                <p>
+                                    Quản lý hóa đơn
+                                    <i class="fas fa-money-bill-wave right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Index","Bill")" class="nav-link">
+                                        <i class="fas fa-money-bill-alt nav-icon"></i>
+                                        <p>Danh sách hóa đơn</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
                         <li class="nav-header">Hoạt động</li>
                         <li class="nav-item">
                             <a href="@Url.Action("Index","Contact")" class="nav-link">
@@ -335,8 +353,8 @@
                                 </p>
                             </a>
                         </li>
-                        
-                        
+
+
                         <li class="nav-header">MISCELLANEOUS</li>
                         <li class="nav-item">
                             <a href="../../iframe.html" class="nav-link">
@@ -350,7 +368,7 @@
                                 <p>Documentation</p>
                             </a>
                         </li>
-                      
+
                         <li class="nav-header">Thống kê</li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">

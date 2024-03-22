@@ -30,17 +30,17 @@ namespace Web_Project.Models
         [DisplayName("Số điện thoại")]
         [Required(ErrorMessage = "Vui lòng nhập số điện thoại.")]
         public string phone_number { get; set; }
-        [DisplayName("Bàn")]
+        [DisplayName("Mã bàn")]
         [Required(ErrorMessage = "Vui lòng nhập mã bàn.")]
         public Nullable<int> table_id { get; set; }
         [DisplayName("Số lượng")]
         [Required(ErrorMessage = "Vui lòng nhập số lượng.")]
         public Nullable<int> quantity { get; set; }
-        [DisplayName("Thời gian đặt bàn")]
-        [Required(ErrorMessage = "Vui lòng nhập thời gian đặt.")]
+        [DisplayName("Giờ đến")]
+        [Required(ErrorMessage = "Vui lòng chọn giờ đến.")]
         public Nullable<System.TimeSpan> reservation_time { get; set; }
-        [DisplayName("Ngày đặt bàn")]
-        [Required(ErrorMessage = "Vui lòng nhập ngày đặt bàn.")]
+        [DisplayName("Ngày đến")]
+        [Required(ErrorMessage = "Vui lòng nhập ngày đến.")]
         public Nullable<System.DateTime> reservation_date { get; set; }
         [DisplayName("Ghi chú")]
         public string Note { get; set; }
