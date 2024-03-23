@@ -49,7 +49,7 @@ namespace Web_Project.Controllers
         {
             if (Session["user"] == null)
             {
-                return RedirectToAction("Login");
+                return RedirectToAction("Login", "Dashboard", new { area = "Admin" });
             }
             else
             {
