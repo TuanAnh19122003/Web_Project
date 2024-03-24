@@ -2501,6 +2501,7 @@
     <Content Include="Views\Restaurant\Reservation.cshtml" />
     <Content Include="Views\Restaurant\SuccessView.cshtml" />
     <Content Include="Views\Restaurant\FailureView.cshtml" />
+    <Content Include="Views\Restaurant\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

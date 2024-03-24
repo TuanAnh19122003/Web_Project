@@ -1,0 +1,90 @@
+﻿@model Web_Project.Models.Menu
+
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutRestaurant.cshtml";
+}
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800" rel="stylesheet">
+
+    <link href="~/Theme/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Theme/css/animate.css" rel="stylesheet" />
+    <link href="~/Theme/css/owl.carousel.min.css" rel="stylesheet" />
+    <link href="~/Theme/css/magnific-popup.css" rel="stylesheet" />
+
+    <link href="~/Theme/fonts/ionicons/css/ionicons.css" rel="stylesheet" />
+    <link href="~/Theme/fonts/fontawesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Theme/fonts/flaticons/font/flaticon.css" rel="stylesheet" />
+
+    <!-- Theme Style -->
+    <link href="~/Theme/css/style.css" rel="stylesheet" />
+    <link href="~/Theme/css/menu.css" rel="stylesheet" />
+
+</head>
+<style>
+    /* Tùy chỉnh CSS cho giao diện đẹp hơn */
+    .product-container {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-image {
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .product-info {
+        padding-left: 20px;
+    }
+
+    /* Hiệu ứng hover cho nút quay lại */
+    .back-btn:hover {
+        transform: scale(1.1);
+    }
+</style>
+
+<body>
+    <section class="home-slider-loop-false  inner-page owl-carousel">
+        <div class="slider-item" style="background-image: url('/Theme/img/media/hero_2.jpg');">
+            <div class="container">
+                <div class="row slider-text align-items-center justify-content-center">
+                    <div class="col-md-8 text-center col-sm-12 element-animate">
+                        <h1>Menu Details</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container mt-5" style="padding-top:50px;padding-bottom:50px">
+        <div class="row">
+            <div class="col-md-8 mx-auto product-container">
+                <!-- Nút quay lại -->
+                <a href="@Url.Action("Menu", "Restaurant")" class="btn btn-primary back-btn mb-3">Quay lại</a>
+
+                <div class="row">
+                    <!-- Cột chứa ảnh sản phẩm -->
+                    <div class="col-md-6 product-image">
+                        <img src="@Url.Content("~/Theme/img/Foods/" + Model.img)" alt="Image" class="img-fluid" style="width: 400px; height: 300px;">
+                    </div>
+                    <!-- Cột chứa thông tin sản phẩm -->
+                    <div class="col-md-6 product-info">
+                        <h3 class="text-primary">@Model.name</h3>
+                        <p class="font-weight-bold text-danger">Giá: @Model.price</p>
+                        <p class="text-muted text-bg-success">Mô tả: @Model.description</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>

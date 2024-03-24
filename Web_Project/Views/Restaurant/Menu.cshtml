@@ -55,11 +55,13 @@
                 @foreach (var menuItem in Model)
                 {
                     <div class="menu-item-content" data-category="@menuItem.category_id">
-                        <img src="~/Theme/img/Foods/@menuItem.img" alt="@menuItem.name" width="200" height="200" />
-                        <div class="item-details">
-                            <h4>@menuItem.name</h4>
-                            <p class="price">Giá: @string.Format("{0:#,##0} đ", menuItem.price)</p>
-                        </div>
+                        <a href="@Url.Action("Details", "Restaurant", new { id = menuItem.id })">
+                            <img src="~/Theme/img/Foods/@menuItem.img" alt="@menuItem.name" width="200" height="200" />
+                            <div class="item-details">
+                                <h4>@menuItem.name</h4>
+                                <p class="price">Giá: @string.Format("{0:#,##0} đ", menuItem.price)</p>
+                            </div>
+                        </a>
                     </div>
 
                 }

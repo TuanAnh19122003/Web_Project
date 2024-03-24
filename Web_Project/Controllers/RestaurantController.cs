@@ -39,6 +39,16 @@ namespace Web_Project.Controllers
             var menuData = db.Menus.Include("Category").ToList();
             return View(menuData);
         }
+        public ActionResult Details(int id)
+        {
+            var menuItem = db.Menus.FirstOrDefault(x => x.id == id);
+            if (menuItem == null)
+            {
+                return HttpNotFound();
+            }
+            return View(menuItem);
+        }
+
         public ActionResult Deals(int ? page)
         {
             int pageSize = 6;
