@@ -2,6 +2,33 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    int numberOfAccounts;
+
+    using (var dbContext = new Web_Project.Models.Restaurant_Web_DataEntities())
+    {
+        numberOfAccounts = dbContext.Accounts.Count();
+    }
+
+    int numberOfStaffs;
+
+    using (var dbContext = new Web_Project.Models.Restaurant_Web_DataEntities())
+    {
+        numberOfStaffs = dbContext.Staffs.Count();
+    }
+
+    int numberOfMenus;
+
+    using (var dbContext = new Web_Project.Models.Restaurant_Web_DataEntities())
+    {
+        numberOfMenus = dbContext.Menus.Count();
+    }
+
+    int numberOfReservations;
+
+    using (var dbContext = new Web_Project.Models.Restaurant_Web_DataEntities())
+    {
+        numberOfReservations = dbContext.Reservations.Count();
+    }
 }
 
 <div class="content-wrapper">
@@ -11,15 +38,109 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-6 text-end text-danger text-uppercase">
-                        TEN
+                        Trang chủ quản lý nhà hàng
                     </div>
                     <div class="col-6 text-right">
-                        LINK
+                        @{
+                            var user = (Web_Project.Models.Account)HttpContext.Current.Session["user"];
+                        }
+                        
+                        @if (user != null)
+                        {
+                            <span>Xin chào, @user.account1</span>
+                        }
                     </div>
                 </div>
             </div>
-            <div class="card-body">
-                NOI DUNG
+            <div class="card-body" style="padding-top: 10px">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="border p-3" style="background-color: #f2f2f2; color: black; border-radius: 10px 10px 10px 10px; padding: 10px;">
+                            <!-- Đóng khung -->
+                            <div class="row">
+                                <div class="col-3">
+                                    <!-- Hiển thị ảnh quản lý -->
+                                    <img src="~/Theme/img/media/Quan_ly_tai_khoan.jpg" alt="Manager Image" style="width: 200px; height: 100px;">
+                                </div>
+                                <div class="col-5" style="align-content: center; padding-left: 50px;">
+                                    <div class="info">
+                                        <!-- Hiển thị tên quản lý -->
+                                        <h3 class="d-block">Quản lý tài khoản</h3>
+                                        <!-- Hiển thị số lượng bảng -->
+                                        <p>Số lượng tài khoản: @numberOfAccounts</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="padding-top: 10px">
+                    <div class="col-12">
+                        <div class="border p-3" style="background-color: #f2f2f2; color: black; border-radius: 10px 10px 10px 10px; padding: 10px;">
+                            <!-- Đóng khung -->
+                            <div class="row">
+                                <div class="col-3">
+                                    <!-- Hiển thị ảnh quản lý -->
+                                    <img src="~/Theme/img/media/Quan_ly_nhan_vien.jpg" alt="Manager Image" style="width: 200px; height: 100px;">
+                                </div>
+                                <div class="col-5" style="align-content: center; padding-left: 50px;">
+                                    <div class="info">
+                                        <!-- Hiển thị tên quản lý -->
+                                        <h3 class="d-block">Quản lý nhân viên</h3>
+                                        <!-- Hiển thị số lượng bảng -->
+                                        <p>Số lượng nhân viên: @numberOfStaffs</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="padding-top: 10px">
+                    <div class="col-12">
+                        <div class="border p-3" style="background-color: #f2f2f2; color: black; border-radius: 10px 10px 10px 10px; padding: 10px;">
+                            <!-- Đóng khung -->
+                            <div class="row">
+                                <div class="col-3">
+                                    <!-- Hiển thị ảnh quản lý -->
+                                    <img src="~/Theme/img/media/Quan_ly_thuc_don.jpg" alt="Manager Image" style="width: 200px; height: 100px;">
+                                </div>
+                                <div class="col-5" style="align-content: center; padding-left: 50px;">
+                                    <div class="info">
+                                        <!-- Hiển thị tên quản lý -->
+                                        <h3 class="d-block">Quản lý thực đơn</h3>
+                                        <!-- Hiển thị số lượng bảng -->
+                                        <p>Số lượng món ăn: @numberOfMenus</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="padding-top: 10px">
+                    <div class="col-12">
+                        <div class="border p-3" style="background-color: #f2f2f2; color: black; border-radius: 10px 10px 10px 10px; padding: 10px;">
+                            <!-- Đóng khung -->
+                            <div class="row">
+                                <div class="col-3">
+                                    <!-- Hiển thị ảnh quản lý -->
+                                    <img src="~/Theme/img/media/Quan_ly_dat_ban.jpg" alt="Manager Image" style="width: 200px; height: 100px;">
+                                </div>
+                                <div class="col-5" style="align-content: center; padding-left: 50px;">
+                                    <div class="info">
+                                        <!-- Hiển thị tên quản lý -->
+                                        <h3 class="d-block">Quản lý đặt bàn</h3>
+                                        <!-- Hiển thị số lượng bảng -->
+                                        <p>Số lượng đặt bàn: @numberOfReservations</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>

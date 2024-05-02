@@ -1,5 +1,4 @@
-﻿
-@{
+﻿﻿@{
     Layout = null;
 }
 
@@ -15,7 +14,7 @@
         <div class="form">
             <form class="login-form" method="post">
                 <input type="text" placeholder="Username" name="user" />
-                <input type="password" placeholder="Password" name="pass"/>
+                <input type="password" placeholder="Password" name="pass" />
                 <p class="text-bg-danger">@TempData["error"]</p>
                 <button type="submit">login</button>
                 <p class="message">Not registered? <a href="@Url.Action("Register","Dashboard")">Create an account</a></p>

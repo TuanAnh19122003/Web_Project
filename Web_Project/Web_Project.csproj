@@ -438,9 +438,14 @@
     <Content Include="Theme\img\media\img_4.jpg" />
     <Content Include="Theme\img\media\img_4_square.jpg" />
     <Content Include="Theme\img\media\logo-nha-hang-28.jpg" />
+    <Content Include="Theme\img\media\logo_nha_hang.jpg" />
     <Content Include="Theme\img\media\person_1.jpg" />
     <Content Include="Theme\img\media\person_2.jpg" />
     <Content Include="Theme\img\media\person_3.jpg" />
+    <Content Include="Theme\img\media\Quan_ly_dat_ban.jpg" />
+    <Content Include="Theme\img\media\Quan_ly_nhan_vien.jpg" />
+    <Content Include="Theme\img\media\Quan_ly_tai_khoan.jpg" />
+    <Content Include="Theme\img\media\Quan_ly_thuc_don.jpg" />
     <Content Include="Theme\img\media\slide-show-1.png" />
     <Content Include="Theme\img\media\slide-show-2.jpg" />
     <Content Include="Theme\img\media\slide-show-3.jpg" />

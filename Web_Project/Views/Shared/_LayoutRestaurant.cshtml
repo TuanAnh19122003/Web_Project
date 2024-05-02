@@ -59,13 +59,18 @@
                                         <span>@user.account1</span>
                                     }
                                 </a>
-                                <ul class="dropdown-menu">
-                                    <li>
+                                <ul class="dropdown-menu"> 
+                                    <li style="color: black">
                                         <a href="/Admin/Dashboard/Logout"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
                                     </li>
+                                    @if (user.role_id == "Admin")
+                                    {
+                                        <li style="color: black">
+                                            <a href="/Admin/Dashboard"><i class="fa fa-cog fa-fw"></i>Trang quản lý</a>
+                                        </li>
+                                    }
                                 </ul>
                             </li>
-
                         }
                         else
                         {
@@ -74,6 +79,7 @@
                                 <a class="nav-link" href="/Admin/Dashboard/Login"><i class="fa fa-user"></i> Đăng nhập</a>
                             </li>
                         }
+
                     </ul>
 
                     <ul class="navbar-nav ml-auto">
