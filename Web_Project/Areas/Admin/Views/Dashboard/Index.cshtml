@@ -2,35 +2,24 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
-    int numberOfAccounts;
+    int numberOfAccounts, numberOfStaffs, numberOfMenus, numberOfReservations;
 
     using (var dbContext = new Web_Project.Models.Restaurant_Web_DataEntities())
     {
         numberOfAccounts = dbContext.Accounts.Count();
-    }
-
-    int numberOfStaffs;
-
-    using (var dbContext = new Web_Project.Models.Restaurant_Web_DataEntities())
-    {
         numberOfStaffs = dbContext.Staffs.Count();
-    }
-
-    int numberOfMenus;
-
-    using (var dbContext = new Web_Project.Models.Restaurant_Web_DataEntities())
-    {
         numberOfMenus = dbContext.Menus.Count();
-    }
-
-    int numberOfReservations;
-
-    using (var dbContext = new Web_Project.Models.Restaurant_Web_DataEntities())
-    {
         numberOfReservations = dbContext.Reservations.Count();
     }
 }
+<style>
+    .hover-effect:hover {
+        box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2);
+        transform: scale(1.05);
+        transition: all 0.3s ease-in-out;
+    }
 
+</style>
 <div class="content-wrapper">
     <section class="content" style="padding-top:30px">
         <!-- Default box -->
@@ -53,7 +42,7 @@
                 </div>
             </div>
             <div class="card-body" style="padding-top: 10px">
-                <div class="row">
+                <div class="row hover-effect">
                     <div class="col-12">
                         <div class="border p-3" style="background-color: #f2f2f2; color: black; border-radius: 10px 10px 10px 10px; padding: 10px;">
                             <!-- Đóng khung -->
@@ -75,7 +64,7 @@
                     </div>
                 </div>
 
-                <div class="row" style="padding-top: 10px">
+                <div class="row hover-effect" style="padding-top: 15px">
                     <div class="col-12">
                         <div class="border p-3" style="background-color: #f2f2f2; color: black; border-radius: 10px 10px 10px 10px; padding: 10px;">
                             <!-- Đóng khung -->
@@ -97,7 +86,7 @@
                     </div>
                 </div>
 
-                <div class="row" style="padding-top: 10px">
+                <div class="row hover-effect" style="padding-top: 15px">
                     <div class="col-12">
                         <div class="border p-3" style="background-color: #f2f2f2; color: black; border-radius: 10px 10px 10px 10px; padding: 10px;">
                             <!-- Đóng khung -->
@@ -119,7 +108,7 @@
                     </div>
                 </div>
 
-                <div class="row" style="padding-top: 10px">
+                <div class="row hover-effect" style="padding-top: 15px">
                     <div class="col-12">
                         <div class="border p-3" style="background-color: #f2f2f2; color: black; border-radius: 10px 10px 10px 10px; padding: 10px;">
                             <!-- Đóng khung -->
