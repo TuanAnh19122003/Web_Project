@@ -56,6 +56,15 @@ namespace Web_Project.Controllers
             var list = db.Deals.OrderBy(b => b.id).ToPagedList(pageNumber, pageSize);
             return View(list);
         }
+        public ActionResult DealsDetails(int id)
+        {
+            var dealItem = db.Deals.FirstOrDefault(x => x.id == id);
+            if (dealItem == null)
+            {
+                return HttpNotFound();
+            }
+            return View(dealItem);
+        }
         public ActionResult Reservation([Bind(Include = "reservation_id,customer_name,phone_number,table_id,quantity,reservation_time,reservation_date,Note")] Reservation res)
         {
             if (Session["user"] == null)
