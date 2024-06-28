@@ -77,6 +77,7 @@ namespace Web_Project.Controllers
                 {
                     db.Reservations.Add(res);
                     db.SaveChanges();
+                    Session["Reservation"] = res;
                     return RedirectToAction("ReservationPaymentWithPaypal");
                 }
                 ModelState.Clear();
@@ -117,9 +118,17 @@ namespace Web_Project.Controllers
                     //here we are generating guid for storing the paymentID received in session
                     //which will be used in the payment execution
                     var guid = Convert.ToString((new Random()).Next(100000));
+                    // Get the reservation details from the session or database
+                    var reservation = (Reservation)Session["Reservation"];
+                    if (reservation == null)
+                    {
+                        return View("FailureView");
+                    }
+                    DateTime reservationDate = reservation.reservation_date ?? DateTime.Now; // Sử dụng giá trị mặc định nếu cần
+
                     //CreatePayment function gives us the payment approval url
                     //on which payer is redirected for paypal account payment
-                    var createdPayment = this.CreateReservationPayment(apiContext, baseURI + "guid=" + guid, "Reservation", "USD", 50);
+                    var createdPayment = this.CreateReservationPayment(apiContext, baseURI + "guid=" + guid, reservation, "USD", 50);
                     //get links returned from paypal in response to Create function call
                     var links = createdPayment.links.GetEnumerator();
                     string paypalRedirectUrl = null;
@@ -138,7 +147,7 @@ namespace Web_Project.Controllers
                 }
                 else
                 {
-                    // This function exectues after receving all parameters for the payment
+                    // This function executes after receiving all parameters for the payment
                     var guid = Request.Params["guid"];
                     var executedPayment = ExecutePayment(apiContext, payerId, Session[guid] as string);
                     //If executed payment failed then we will show payment failure message to user
@@ -155,15 +164,8 @@ namespace Web_Project.Controllers
             //on successful payment, show success page to user.
             return View("SuccessView");
         }
-        public ActionResult SuccessView()
-        {
-            return View();
-        }
-        public ActionResult FailureView()
-        {
-            return View();
-        }
-        private Payment CreateReservationPayment(APIContext apiContext, string redirectUrl, string reservationName, string currency, decimal totalPrice)
+
+        private Payment CreateReservationPayment(APIContext apiContext, string redirectUrl, Reservation reservation, string currency, decimal totalPrice)
         {
             // Tạo danh sách các sản phẩm
             var itemList = new ItemList()
@@ -172,10 +174,12 @@ namespace Web_Project.Controllers
                 {
                     new Item()
                     {
-                        name = reservationName, // Đổi tên sản phẩm thành tên đặt bàn
-                        currency = currency, // Đổi tiền tệ thành tiền tệ mong muốn (VD: "USD", "VND")
-                        price = totalPrice.ToString(), // Đặt giá sản phẩm là tổng giá tiền
-                        quantity = "1", // Số lượng là 1 vì chỉ có một đặt bàn
+                        name = "Đặt bàn cho khách hàng " + reservation.customer_name + "\nSố điện thoại: " + reservation.phone_number
+                        + "\nNgày đặt : " + reservation.reservation_date+ "\nGiờ đặt : " + reservation.reservation_time 
+                        + "\nGhi chú : " + reservation.Note,
+                        currency = currency,
+                        price = totalPrice.ToString(),
+                        quantity = "1",
                         sku = "reservation"
                     }
                 }
@@ -199,7 +203,7 @@ namespace Web_Project.Controllers
             var paypalOrderId = DateTime.Now.Ticks;
             transactionList.Add(new Transaction()
             {
-                description = $"Invoice #{paypalOrderId}",
+                description = $"Invoice #{paypalOrderId} - Reservation for {reservation.customer_name} ({reservation.phone_number}), Date: {reservation.reservation_date?.ToString("MM/dd/yyyy")}, Note: {reservation.Note}",
                 invoice_number = paypalOrderId.ToString(), // Số hóa đơn (có thể thay đổi tùy theo yêu cầu)
                 amount = amount,
                 item_list = itemList
@@ -221,5 +225,7 @@ namespace Web_Project.Controllers
             // Tạo thanh toán và trả về đối tượng Payment
             return payment.Create(apiContext);
         }
+
+
     }
 }
